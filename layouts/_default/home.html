@@ -3,7 +3,7 @@
   <div class="cv-layout">
     {{ partial "cv-hero.html" . }}
     <main class="cv-main">
-      {{ with hugo.Data.profile }}
+      {{ with .Site.Data.profile }}
         <h2>O mnie</h2>
         <p class="summary">{{ .summary | markdownify }}</p>
       {{ end }}

@@ -1,4 +1,4 @@
-{{ $skills := hugo.Data.skills }}
+{{ $skills := .Site.Data.skills }}
 
 {{ range $skills.categories }}
   {{ $subskills := .subskills }}

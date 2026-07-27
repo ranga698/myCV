@@ -1,5 +1,5 @@
 <aside class="cv-sidebar">
-  {{ $profile := hugo.Data.profile }}
+  {{ $profile := .Site.Data.profile }}
   {{ $avatar := $profile.avatar | default "/images/avatar.webp" }}
   {{ $avatarPath := printf "static/%s" $avatar }}
   {{ if (fileExists $avatarPath) }}
