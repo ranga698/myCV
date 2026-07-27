@@ -1,5 +1,5 @@
 baseURL = 'https://example.org/'
-languageCode = 'pl-pl'
+locale = 'pl-PL'
 title = 'CV - Moje Portfolio'
 theme = 'PaperMod'
 
@@ -34,17 +34,19 @@ buildDrafts = false
   showtoc = false
   tocopen = false
 
-  homeInfoParams:
+  [params.homeInfoParams]
     Title = 'Witaj na mojej stronie CV'
     Content = 'Inżynier oprogramowania | Pasjonat technologii'
 
-  socialIcons:
-    - name: 'github'
-      url: 'https://github.com/twojlogin'
-    - name: 'linkedin'
-      url: 'https://linkedin.com/in/twojprofil'
-    - name: 'email'
-      url: 'mailto:twoj@email.com'
+  [[params.socialIcons]]
+    name = 'github'
+    url = 'https://github.com/twojlogin'
+  [[params.socialIcons]]
+    name = 'linkedin'
+    url = 'https://linkedin.com/in/twojprofil'
+  [[params.socialIcons]]
+    name = 'email'
+    url = 'mailto:twoj@email.com'
 
 [menu]
   [[menu.main]]
