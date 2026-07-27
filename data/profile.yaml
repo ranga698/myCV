@@ -5,10 +5,11 @@ phone: "+48 123 456 789"
 location: "Poznań, Polska"
 avatar: "/images/avatar.webp"
 summary: >
-  Inżynier infrastruktury IT z 5-letnim doświadczeniem w administracji
-  systemami Linux, sieciach komputerowych, wirtualizacji (Proxmox)
-  i self-hostingu. Specjalizuję się w budowie i utrzymaniu infrastruktury
-  dla&nbsp;małych i&nbsp;średnich firm. Entuzjasta open-source i&nbsp;minimalizmu technologicznego.
+  Jestem inżynierem aplikacyjnym w branży automatyki przemysłowej, realizuję projekty na sprzęcie firmy Rockwell Automation. Mój zakres obowiązków obejmuje programowanie sterowników PLC i systemów DCS (PlantPAx 4 i 5), tworzenie wizualizacji SCADA, rozwój oprogramowania w C# (FactoryTalk Optix) oraz zarządzanie danymi procesowymi z wykorzystaniem baz danych: MSSQL, InfluxDB, MariaDB, Grafana, VictoriaMetrics i OSIsoft PI Historian. Konfiguruję infrastrukturę sieciową opartą na sprzęcie Cisco (Stratix) oraz środowiska wirtualizacyjne na Proxmox i Hyper-V (Dell i Stratus). Specjalizuję się w analizie i integracji protokołów przemysłowych: OPC UA, MQTT oraz Ethernet/IP.
+
+  Zajmuję się wsparciem klientów – zarówno w rozwiązywaniu problemów bieżących, jak i na etapie przygotowania, realizacji oraz po zakończeniu projektów. Dodatkowo prowadzę szkolenia oraz ściśle współpracuję z działem handlowym i zespołem developerskim.
+
+  Po godzinach realizuję autorski projekt w którym rozwijam swój HomeLab i intensywnie rozwijam umiejętności sieciowe na poziomie CCNA
 social:
   - name: LinkedIn
     url: "https://linkedin.com/in/username"
