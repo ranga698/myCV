@@ -53,3 +53,102 @@
     line-height: 1.6;
   }
 }
+
+// ===== SINGLE PAGE (artykuł / umiejętność) =====
+.single-page {
+  background: $bg-card;
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  max-width: 780px;
+  margin: 0 auto;
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    color: $text-primary;
+  }
+
+  .entry-date {
+    font-size: 0.85rem;
+    color: $text-muted;
+    margin-bottom: 16px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      font-size: 0.75rem;
+      background: $bg-page;
+      color: $text-secondary;
+      border-radius: 12px;
+    }
+  }
+
+  .content {
+    line-height: 1.8;
+    color: #333;
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul, ol {
+      margin: 0 0 16px 24px;
+      padding: 0;
+
+      li {
+        margin-bottom: 8px;
+        line-height: 1.7;
+      }
+
+      li:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      color: $text-primary;
+      margin: 28px 0 16px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid $primary;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      color: $text-primary;
+      margin: 20px 0 12px;
+    }
+
+    strong {
+      color: $text-primary;
+    }
+
+    a {
+      color: $primary;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    code {
+      background: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+  }
+}
