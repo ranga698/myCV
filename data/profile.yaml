@@ -4,7 +4,7 @@ email: "babkiewiczjan@gmail.com"
 phone: "+48 698 407 xxx"
 location: "Poznań, Polska"
 avatar: "/images/avatar.webp"
-summary: >
+summary: |
   Jestem inżynierem aplikacyjnym w branży automatyki przemysłowej, realizuję projekty na sprzęcie firmy Rockwell Automation. Mój zakres obowiązków obejmuje programowanie sterowników PLC i systemów DCS (PlantPAx 4 i 5), tworzenie wizualizacji SCADA, rozwój oprogramowania w C# (FactoryTalk Optix) oraz zarządzanie danymi procesowymi z wykorzystaniem baz danych: MSSQL, InfluxDB, MariaDB, Grafana, VictoriaMetrics i OSIsoft PI Historian. Konfiguruję infrastrukturę sieciową opartą na sprzęcie Cisco (Stratix) oraz środowiska wirtualizacyjne na Proxmox i Hyper-V (Dell i Stratus). Specjalizuję się w analizie i integracji protokołów przemysłowych: OPC UA, MQTT oraz Ethernet/IP.
 
   Zajmuję się wsparciem klientów – zarówno w rozwiązywaniu problemów bieżących, jak i na etapie przygotowania, realizacji oraz po zakończeniu projektów. Dodatkowo prowadzę szkolenia oraz ściśle współpracuję z działem handlowym i zespołem developerskim.
