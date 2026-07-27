@@ -97,3 +97,11 @@ categories:
       - name: checkmk
         level: 50
         slug: checkmk
+
+  - name: self-host
+    icon: home
+    subskills:
+      - name: lightRAG
+        level: 100
+        slug: lightrag
+        url: /posts/lightrag/

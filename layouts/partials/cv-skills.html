@@ -12,13 +12,17 @@
     {{ $avg := div $total $count }}
 
     {{ $firstSlug := "" }}
-    {{ range first 1 $subskills }}{{ $firstSlug = .slug }}{{ end }}
+    {{ $firstUrl := "" }}
+    {{ range first 1 $subskills }}
+      {{ $firstSlug = .slug }}
+      {{ if .url }}{{ $firstUrl = .url }}{{ else }}{{ $firstUrl = printf "/skills/%s/" .slug }}{{ end }}
+    {{ end }}
 
     <div class="skill-category">
       <div class="skill-category-header" onclick="this.classList.toggle('open');this.nextElementSibling.nextElementSibling.classList.toggle('open')">
         <span class="chevron">▶</span>
         <span class="skill-cat-name">
-          <a href="/skills/{{ $firstSlug }}/">{{ .name }}</a>
+          <a href="{{ $firstUrl }}">{{ .name }}</a>
         </span>
         <span class="skill-cat-pct">{{ $avg }}%</span>
       </div>
@@ -30,7 +34,8 @@
           <div class="skill-subskill">
             <span class="sub-name">
               {{ if .slug }}
-                <a href="/skills/{{ .slug }}/">{{ .name }}</a>
+                {{ $link := .url | default (printf "/skills/%s/" .slug) }}
+                <a href="{{ $link }}">{{ .name }}</a>
               {{ else }}
                 {{ .name }}
               {{ end }}
@@ -46,7 +51,8 @@
     <div class="skill-simple">
       <span class="skill-name">
         {{ if .slug }}
-          <a href="/skills/{{ .slug }}/">{{ .name }}</a>
+          {{ $link := .url | default (printf "/skills/%s/" .slug) }}
+          <a href="{{ $link }}">{{ .name }}</a>
         {{ else }}
           {{ .name }}
         {{ end }}

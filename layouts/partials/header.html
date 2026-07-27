@@ -3,7 +3,7 @@
     <a href="/" class="logo">{{ .Site.Data.profile.name | default .Site.Title }}</a>
     <nav>
       <a href="/" class="{{ if .IsHome }}active{{ end }}">CV</a>
-      <a href="/posts/" class="{{ if eq .Section "posts" }}active{{ end }}">Artykuły i opisy</a>
+      <a href="/posts/" class="{{ if eq .Section "posts" }}active{{ end }}">Artykuły i umiejętności</a>
     </nav>
   </div>
 </header>

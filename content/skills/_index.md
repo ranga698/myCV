@@ -1,5 +1,5 @@
 +++
-title = "Opisy umiejętności"
+title = "Umiejętności"
 date = 2026-01-01
 +++
 

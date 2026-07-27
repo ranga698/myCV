@@ -9,7 +9,7 @@
     {{ range .Pages }}
       <article class="entry-card" data-type="{{ .Type }}">
         <div class="entry-type {{ if eq .Type "skill" }}skill-type{{ else }}post-type{{ end }}">
-          {{ if eq .Type "skill" }}🔧 Opis umiejętności{{ else }}📝 Artykuł{{ end }}
+          {{ if eq .Type "skill" }}🔧 Umiejętność{{ else }}📝 Artykuł{{ end }}
         </div>
         <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
         <div class="entry-date">{{ .Date.Format "2 January 2006" }}</div>
