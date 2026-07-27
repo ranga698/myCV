@@ -1,0 +1,18 @@
+# AGENTS - Wytyczne dla agenta AI
+
+## Projekt: CV-WebPage
+Strona CV utworzona za pomocą Hugo z motywem PaperMod.
+
+## Struktura projektu
+- `/content/` - treści stron (Markdown)
+- `/themes/PaperMod` - motyw (git submodule)
+- `/static/` - pliki statyczne (zdjęcia, CV PDF itp.)
+- `/assets/` - zasoby do przetworzenia przez Hugo Pipes
+- `/layouts/` - własne szablony (nadpisujące theme)
+- `hugo.toml` - główna konfiguracja
+
+## Zasady
+- Wszystkie zmiany commitujemy z opisowym komunikatem
+- Nie modyfikujemy plików w themes/PaperMod - zmiany robimy przez layouts/
+- Treści piszemy w języku polskim
+- Strona ma być responsywna i nowoczesna

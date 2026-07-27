@@ -1,0 +1,78 @@
+baseURL = 'https://example.org/'
+languageCode = 'pl-pl'
+title = 'CV - Moje Portfolio'
+theme = 'PaperMod'
+
+# PaperMod specific settings
+paginate = 5
+enableEmoji = true
+enableRobotsTXT = true
+buildDrafts = false
+
+[params]
+  env = 'production'
+  title = 'CV - Moje Portfolio'
+  description = 'Strona CV z moim portfolio i doświadczeniem'
+  keywords = ['CV', 'portfolio', 'programowanie']
+  author = 'Imię Nazwisko'
+  DateFormat = '2006-01-02'
+  defaultTheme = 'auto'
+  disableThemeToggle = false
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  disableSpecial1stPost = false
+  disableScrollToTop = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = false
+  tocopen = false
+
+  homeInfoParams:
+    Title = 'Witaj na mojej stronie CV'
+    Content = 'Inżynier oprogramowania | Pasjonat technologii'
+
+  socialIcons:
+    - name: 'github'
+      url: 'https://github.com/twojlogin'
+    - name: 'linkedin'
+      url: 'https://linkedin.com/in/twojprofil'
+    - name: 'email'
+      url: 'mailto:twoj@email.com'
+
+[menu]
+  [[menu.main]]
+    identifier = 'about'
+    name = 'O mnie'
+    url = '/about/'
+    weight = 10
+
+  [[menu.main]]
+    identifier = 'experience'
+    name = 'Doświadczenie'
+    url = '/experience/'
+    weight = 20
+
+  [[menu.main]]
+    identifier = 'projects'
+    name = 'Projekty'
+    url = '/projects/'
+    weight = 30
+
+  [[menu.main]]
+    identifier = 'contact'
+    name = 'Kontakt'
+    url = '/contact/'
+    weight = 40
+
+  [[menu.main]]
+    identifier = 'search'
+    name = 'Szukaj'
+    url = '/search/'
+    weight = 50
