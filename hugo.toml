@@ -1,5 +1,6 @@
-baseURL = 'https://twojadomena.pl/'
+baseURL = 'https://698407.xyz/'
 locale = 'pl-PL'
+languageCode = 'pl'
 title = 'Jan Babkiewicz – CV & Blog'
 timeZone = 'Europe/Warsaw'
 theme = ''
