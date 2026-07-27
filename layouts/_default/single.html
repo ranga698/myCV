@@ -1,0 +1,18 @@
+{{ define "main" }}
+<section class="container">
+  <article class="single-page">
+    <h1>{{ .Title }}</h1>
+    <div class="entry-date">{{ .Date.Format "2 January 2006" }}</div>
+    {{ if .Params.tags }}
+      <div class="tags">
+        {{ range .Params.tags }}
+          <span class="tag">{{ . }}</span>
+        {{ end }}
+      </div>
+    {{ end }}
+    <div class="content">
+      {{ .Content }}
+    </div>
+  </article>
+</section>
+{{ end }}

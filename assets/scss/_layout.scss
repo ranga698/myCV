@@ -1,0 +1,105 @@
+.container {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 24px 16px;
+
+  @media (min-width: $breakpoint-mobile) {
+    padding: 24px 24px;
+  }
+}
+
+// ===== HEADER =====
+.site-header {
+  background: $bg-card;
+  border-bottom: 1px solid $border;
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .logo {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: $primary;
+    text-decoration: none;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+
+    &::after {
+      content: '|';
+      color: $border;
+      font-weight: 300;
+      font-size: 1.2rem;
+    }
+  }
+
+  nav {
+    display: flex;
+    gap: 4px;
+  }
+
+  nav a {
+    color: $text-secondary;
+    text-decoration: none;
+    padding: 6px 14px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 0;
+    transition: all 0.2s;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: transparent;
+      border-radius: 2px;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      color: $primary;
+    }
+
+    &.active {
+      color: $primary;
+      font-weight: 600;
+
+      &::before {
+        background: $primary;
+      }
+    }
+  }
+}
+
+// ===== FOOTER =====
+.site-footer {
+  text-align: center;
+  padding: 12px 16px;
+  color: $text-muted;
+  font-size: 0.8rem;
+  border-top: 1px solid $border;
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+// ===== MAIN CONTENT =====
+main {
+  flex: 1;
+}

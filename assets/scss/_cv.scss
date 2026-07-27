@@ -1,0 +1,143 @@
+.cv-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 0;
+  background: $bg-card;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin-bottom: 24px;
+
+  @media (max-width: $breakpoint-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ===== LEWA KOLUMNA =====
+.cv-sidebar {
+  background: $bg-card;
+  padding: 32px 24px;
+  text-align: center;
+  border-right: 1px solid #f0f0f0;
+
+  @media (max-width: $breakpoint-mobile) {
+    border-right: none;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 24px 16px;
+  }
+}
+
+.cv-avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 3px solid $primary;
+  object-fit: cover;
+  margin: 0 auto 16px;
+  display: block;
+  background: #e8e8e8;
+}
+
+.cv-sidebar h1 {
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+  color: $text-primary;
+}
+
+.cv-sidebar .title {
+  font-size: 0.9rem;
+  color: $text-secondary;
+  margin-bottom: 8px;
+}
+
+.cv-sidebar .location {
+  font-size: 0.85rem;
+  color: $text-muted;
+  margin-bottom: 16px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: $bg-page;
+    color: $text-secondary;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: all 0.2s;
+
+    &:hover {
+      background: $primary;
+      color: #fff;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+  }
+}
+
+// ===== CONTACT INFO (sidebar) =====
+.contact-info {
+  margin-bottom: 16px;
+
+  .contact-item {
+    font-size: 0.82rem;
+    color: $text-secondary;
+    margin-bottom: 4px;
+    line-height: 1.5;
+
+    a {
+      color: $primary;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// ===== PRAWA KOLUMNA =====
+.cv-main {
+  padding: 32px 32px 32px 8px;
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 24px 16px;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    color: $text-primary;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid $primary;
+    display: inline-block;
+  }
+}
+
+.summary {
+  color: #444;
+  margin-bottom: 28px;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.skills-hint {
+  font-size: 0.8rem;
+  color: $text-muted;
+  margin-bottom: 16px;
+  margin-top: -8px;
+  font-style: italic;
+}

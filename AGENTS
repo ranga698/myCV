@@ -1,18 +1,446 @@
-# AGENTS - Wytyczne dla agenta AI
+# CV Website – Hugo Static Site
 
-## Projekt: CV-WebPage
-Strona CV utworzona za pomocą Hugo z motywem PaperMod.
+## Project overview
+Osobista strona-wizytówka pełniąca rolę CV online, zbudowana w **Hugo** (static site generator).
+Strona ma być maksymalnie lekka: HTML + CSS + absolutne minimum JS.
+Design inspirowany profilem LinkedIn: czysty, profesjonalny, stonowana kolorystyka.
 
-## Struktura projektu
-- `/content/` - treści stron (Markdown)
-- `/themes/PaperMod` - motyw (git submodule)
-- `/static/` - pliki statyczne (zdjęcia, CV PDF itp.)
-- `/assets/` - zasoby do przetworzenia przez Hugo Pipes
-- `/layouts/` - własne szablony (nadpisujące theme)
-- `hugo.toml` - główna konfiguracja
+---
 
-## Zasady
-- Wszystkie zmiany commitujemy z opisowym komunikatem
-- Nie modyfikujemy plików w themes/PaperMod - zmiany robimy przez layouts/
-- Treści piszemy w języku polskim
-- Strona ma być responsywna i nowoczesna
+## Tech stack
+- **Generator**: Hugo Extended v0.140+ (potrzebny do SCSS → CSS przez Hugo Pipes)
+- **Język treści**: polski
+- **Style**: SCSS kompilowany przez Hugo Pipes (nie zewnętrzny build tool)
+- **JavaScript**: absolutne minimum – tylko filtrowanie na stronie artykułów
+- **Czcionki**: systemowe (system-ui, -apple-system, Segoe UI, Roboto, sans-serif) – zero Google Fonts/CDN (GDPR-friendly)
+- **Ikony**: inline SVG (żadnych zewnętrznych font-iconów)
+- **Hosting**: pliki statyczne → `public/`
+
+---
+
+## Directory structure
+
+```
+.
+├── archetypes/
+│   ├── posts.md              # szablon nowego artykułu
+│   └── skills.md             # szablon nowego opisu umiejętności
+├── assets/
+│   └── scss/
+│       ├── main.scss         # główny plik SCSS
+│       ├── _variables.scss   # zmienne: kolory, fonty, breakpointy
+│       ├── _reset.scss       # minimalny CSS reset
+│       ├── _layout.scss      # grid, header, footer
+│       ├── _cv.scss          # stylowanie strony CV (home)
+│       ├── _skills.scss      # paski postępu umiejętności
+│       ├── _articles.scss    # lista artykułów + styl pojedynczego wpisu
+│       ├── _filter.scss      # UI filtrów (artykuł / opis)
+│       └── _utils.scss       # klasy pomocnicze
+├── content/
+│   ├── _index.md             # strona główna = CV (home page)
+│   ├── posts/                # artykuły blogowe
+│   │   ├── _index.md
+│   │   └── moj-pierwszy-post/
+│   │       ├── index.md
+│   │       └── featured.webp
+│   └── skills/               # szczegółowe opisy umiejętności (strony docelowe z pasków)
+│       ├── _index.md
+│       └── vlan/
+│           └── index.md
+├── data/
+│   ├── profile.yaml          # dane osobowe do CV
+│   └── skills.yaml           # struktura umiejętności z poziomami
+├── layouts/
+│   ├── _default/
+│   │   ├── baseof.html       # bazowy szablon HTML (<html>, <head>, <body>)
+│   │   ├── home.html         # szablon strony głównej (CV)
+│   │   ├── list.html         # domyślny szablon listy
+│   │   └── single.html       # domyślny szablon pojedynczej strony
+│   ├── partials/
+│   │   ├── head.html         # <head> z meta tagami i linkiem do CSS
+│   │   ├── header.html       # górny pasek nawigacji
+│   │   ├── footer.html       # stopka
+│   │   ├── cv-hero.html      # sekcja ze zdjęciem + dane podstawowe
+│   │   ├── cv-skills.html    # sekcja z umiejętnościami i paskami postępu
+│   │   ├── skill-bar.html    # pojedynczy pasek postępu (używany rekurencyjnie)
+│   │   └── filter-bar.html   # pasek filtrów artykuł/opis
+│   ├── posts/
+│   │   ├── list.html         # lista artykułów + opisów z filtrowaniem
+│   │   └── single.html       # szablon pojedynczego artykułu
+│   └── skills/
+│       └── single.html       # szablon szczegółowego opisu umiejętności
+├── static/
+│   └── images/
+│       └── avatar.webp       # zdjęcie profilowe (kadrowane 1:1, min. 400x400px)
+├── hugo.toml                  # główna konfiguracja Hugo
+└── AGENTS.md                  # ten plik
+```
+
+---
+
+## Data files
+
+### data/profile.yaml – dane osobowe do CV
+
+```yaml
+name: "Imię Nazwisko"
+title: "IT Infrastructure Engineer"
+email: "kontakt@example.com"
+phone: "+48 123 456 789"
+location: "Warszawa, Polska"
+avatar: "/images/avatar.webp"
+summary: >
+  Inżynier infrastruktury IT z doświadczeniem w administracji systemami Linux,
+  sieciach komputerowych, wirtualizacji (Proxmox) i self-hostingu.
+  Specjalizuję się w budowie i utrzymaniu infrastruktury dla małych i średnich firm.
+social:
+  - name: GitHub
+    url: "https://github.com/username"
+    icon: github    # inline SVG z partials/icons/
+  - name: LinkedIn
+    url: "https://linkedin.com/in/username"
+    icon: linkedin
+  - name: Email
+    url: "mailto:kontakt@example.com"
+    icon: email
+languages:
+  - name: Polski
+    level: ojczysty
+  - name: Angielski
+    level: B2
+```
+
+### data/skills.yaml – umiejętności z poziomami
+
+**Zasada działania:**
+- Każda kategoria (np. "Sieci") ma listę `subskills`.
+- **Poziom główny** kategorii = **średnia arytmetyczna** poziomów subskills.
+- Jeśli kategoria **nie ma subskills** – poziom podajesz bezpośrednio przez `level`.
+- Każdy subskill ma `slug` – to link do szczegółowego opisu w `content/skills/<slug>/`.
+- Jeśli subskill nie ma jeszcze opisu, `slug` może być pusty – wtedy nazwa nie jest linkiem.
+
+```yaml
+categories:
+  - name: Sieci
+    icon: network
+    subskills:
+      - name: VLAN & trunking
+        level: 85
+        slug: vlan
+      - name: STP / RSTP / MSTP
+        level: 70
+        slug: stp
+      - name: Routing (OSPF, BGP)
+        level: 65
+        slug: routing
+      - name: Firewall / OPNsense
+        level: 80
+        slug: opnsense
+      - name: VPN (WireGuard, IPsec)
+        level: 75
+        slug: vpn
+      - name: MikroTik / RouterOS
+        level: 72
+        slug: mikrotik
+
+  - name: Linux
+    icon: terminal
+    subskills:
+      - name: Administracja (systemd, logi, userzy)
+        level: 78
+        slug: linux-admin
+      - name: Bash & skryptowanie
+        level: 65
+        slug: bash
+      - name: LXC / konteneryzacja
+        level: 70
+        slug: lxc
+
+  - name: Wirtualizacja
+    icon: server
+    subskills:
+      - name: Proxmox VE
+        level: 82
+        slug: proxmox
+      - name: Docker
+        level: 60
+        slug: docker
+
+  - name: DevOps
+    icon: git
+    subskills:
+      - name: Git / GitHub
+        level: 70
+        slug: git
+      - name: Ansible
+        level: 45
+        slug: ansible
+      - name: CI/CD (GitHub Actions)
+        level: 50
+        slug: cicd
+
+  - name: Automatyzacja
+    icon: zap
+    subskills:
+      - name: n8n
+        level: 60
+        slug: n8n
+
+  - name: Monitoring
+    icon: eye
+    subskills:
+      - name: Prometheus + Grafana
+        level: 48
+        slug: prometheus
+      - name: Zabbix
+        level: 35
+        slug: zabbix
+```
+
+---
+
+## Pages specification
+
+### 1. Strona główna `/` – CV
+
+Układ **dwu-kolumnowy** na desktopie, **jedna kolumna** na mobile (<768px):
+
+#### Lewa kolumna (30% szerokości na desktopie):
+- Zdjęcie profilowe: okrągłe (`border-radius: 50%`), średnica ~180px, obramowanie 3px w kolorze primary
+- Pod zdjęciem: imię i nazwisko, tytuł/stanowisko, lokalizacja
+- Linki społecznościowe jako małe ikony w rzędzie
+
+#### Prawa kolumna (70% szerokości na desktopie):
+- Sekcja **"O mnie"**: tekst z `profile.summary`
+- Sekcja **"Umiejętności"**: kategorie z paskami postępu (patrz: skill-bar.html)
+
+#### Zasady działania pasków postępu:
+1. Każda **kategoria** (np. "Sieci") renderuje się jako:
+   - Nazwa kategorii (**klikalna** → `/skills/<pierwszy-subskill-slug>/` lub osobna strona kategorii)
+   - Pasek postępu wypełniony kolorem primary na szerokość = średnia subskills
+   - Procent wyświetlony liczbowo po prawej stronie paska
+   - **Rozwijana lista subskills** (domyślnie zwinięta, rozwija się po kliknięciu w kategorię lub ikonę chevron)
+
+2. Każdy **subskill** renderuje się jako:
+   - Nazwa (**klikalna** → `/skills/<slug>/`)
+   - Własny, mniejszy pasek postępu
+   - Procent po prawej
+
+3. Kategoria **bez subskills** (np. czysta "n8n"):
+   - Nazwa + pasek + procent – bez możliwości rozwinięcia
+   - Nazwa klika do `/skills/<slug>/` jeśli slug istnieje
+
+4. **Kolorystyka pasków:**
+   - Tło paska: `#e0e0e0`
+   - Wypełnienie: `#0a66c2` (LinkedIn blue)
+   - Wysokość paska głównego: 10px
+   - Wysokość paska subskilla: 6px
+   - Border-radius pasków: 4px
+
+#### Przykład wizualny sekcji skills:
+
+```
+Sieci [chevron ▼]                          ████████████░░░░ 78%
+  ├─ VLAN & trunking                       █████████████░ 85%
+  ├─ STP / RSTP / MSTP                     ██████████░░░░ 70%
+  ├─ Firewall / OPNsense                   ████████████░░ 80%
+  └─ VPN (WireGuard, IPsec)                ███████████░░░ 75%
+
+Linux [chevron ▼]                          ███████████░░░ 71%
+  ├─ Administracja                         ████████████░░ 78%
+  ├─ Bash & skryptowanie                   ██████████░░░░ 65%
+  └─ LXC / konteneryzacja                  ███████████░░░ 70%
+
+n8n                                         █████████░░░░░ 60%
+```
+
+---
+
+### 2. Strona artykułów i opisów `/posts/`
+
+To **jedna strona** z listą wpisów i **filtrami u góry**.
+
+#### Filtr:
+- Zakładki poziome (taby): **Wszystko** | **Artykuły** | **Opisy umiejętności**
+- Domyślnie aktywne "Wszystko"
+- Filtrowanie **czysto CSS-owe** lub **minimalny JS** (data-attribute + klasa `.hidden`)
+- Każdy wpis ma w front matter `type: post` lub `type: skill`
+
+#### Wygląd listy:
+- Każdy wpis to karta (card): białe tło, cień `box-shadow: 0 1px 3px rgba(0,0,0,.1)`, border-radius 8px
+- W karcie: **tytuł** (link do pełnego wpisu), **data**, **typ** (znaczek: 📝 Artykuł / 🔧 Opis umiejętności), **pierwsze 2 zdania** jako zajawka
+- Karty ułożone pionowo, odstęp 16px między nimi
+- Na mobile karty pełna szerokość, na desktop max-width 780px wyśrodkowane
+
+#### Filtrowanie – implementacja:
+```html
+<!-- Przyciski filtrów -->
+<nav class="filter-bar">
+  <button class="filter-btn active" data-filter="all">Wszystko</button>
+  <button class="filter-btn" data-filter="post">📝 Artykuły</button>
+  <button class="filter-btn" data-filter="skill">🔧 Opisy umiejętności</button>
+</nav>
+
+<!-- Każdy wpis ma data-type -->
+<article class="entry-card" data-type="post">...</article>
+<article class="entry-card" data-type="skill">...</article>
+```
+
+JavaScript (jedyny dopuszczalny JS na stronie!):
+```js
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.entry-card').forEach(card => {
+      card.style.display = (filter === 'all' || card.dataset.type === filter) ? '' : 'none';
+    });
+  });
+});
+```
+
+---
+
+## Content specification
+
+### Nowy artykuł blogowy (`content/posts/<slug>/index.md`)
+
+```markdown
+---
+title: "Tytuł artykułu"
+date: 2026-01-15
+type: post
+description: "Krótki opis na listę (max 160 znaków)"
+tags: ["linux", "docker", "selfhosting"]
+draft: true
+---
+
+Treść artykułu w Markdown...
+```
+
+### Nowy opis umiejętności (`content/skills/<slug>/index.md`)
+
+```markdown
+---
+title: "VLAN – szczegółowy opis"
+date: 2026-01-10
+type: skill
+category: "Sieci"
+level: 85
+related_skill_slug: vlan
+description: "Szczegółowy opis umiejętności: VLAN, trunking, 802.1Q"
+tags: ["sieci", "vlan", "802.1q"]
+draft: true
+---
+
+## Czym jest VLAN?
+
+Virtual LAN to...
+```
+
+**Ważne:** `type: skill` i `type: post` to kluczowe pole – napędza filtrowanie na `/posts/`.
+
+---
+
+## Styling specification
+
+### Kolory (`_variables.scss`)
+
+```scss
+// Tło strony
+$bg-page: #f3f2ef;        // LinkedIn light gray
+
+// Karty i kontenery
+$bg-card: #ffffff;
+
+// Kolory akcentowe
+$primary: #0a66c2;         // LinkedIn blue – linki, paski, przyciski
+$primary-hover: #004182;   // ciemniejszy blue na hover
+
+// Tekst
+$text-primary: #191919;
+$text-secondary: #666666;
+$text-muted: #999999;
+
+// Obramowania i tła
+$border: #e0e0e0;
+$progress-bg: #e0e0e0;     // tło paska postępu
+
+// Typografia
+$font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+$font-size-base: 16px;
+$line-height: 1.6;
+```
+
+### Layout ogólny
+
+- Maksymalna szerokość kontenera: **960px**, wyśrodkowany (`margin: 0 auto`)
+- Padding kontenera: 16px (mobile), 24px (desktop)
+- Odstępy między sekcjami: 32px
+- Responsywność: breakpoint **768px** (poniżej = mobile, jedna kolumna)
+
+---
+
+## Hugo configuration (`hugo.toml`)
+
+```toml
+baseURL = 'https://twojadomena.pl/'
+languageCode = 'pl'
+title = 'Imię Nazwisko – CV & Blog'
+timeZone = 'Europe/Warsaw'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true   # pozwala na raw HTML w Markdown
+
+[params]
+  description = "IT Infrastructure Engineer – CV online i blog techniczny"
+  avatar = "/images/avatar.webp"
+
+# Wyłączamy niepotrzebne formaty
+disableKinds = ["taxonomy", "term"]
+```
+
+`disableKinds = ["taxonomy", "term"]` – wyłącza strony taksonomii (tagi), żeby uprościć strukturę.
+Jeśli chcesz strony z tagami później – usuń tę linię.
+
+---
+
+## Rules (żelazne zasady)
+
+1. **Nie ściągaj żadnego zewnętrznego theme Hugo.** Strona budowana od zera z własnymi layouts.
+2. **Zero CDN, zero Google Fonts, zero zewnętrznych trackerów.** Wszystko lokalne.
+3. **SCSS tylko przez Hugo Pipes** (`assets/scss/` → kompilowane przez `resources.ToCSS` w `<head>`).
+4. **JavaScript tylko do filtrowania** na stronie `/posts/`. Nic więcej. Żadnych frameworków.
+5. **Wszystkie obrazy w WebP.** Zdjęcie profilowe dokładnie 1:1, min. 400x400px.
+6. **Każda zmiana stylu = restart `hugo server`** (Hugo nie hot-reload SCSS automatycznie bez `--disableFastRender`).
+7. **Komendy Hugo odpalaj zawsze z głównego katalogu projektu.**
+8. **Nie modyfikuj `data/skills.yaml` bez potrzeby** – to centralne źródło prawdy dla umiejętności. Jeśli chcesz dodać skill – najpierw dodaj go w data file, potem ewentualnie twórz stronę opisu.
+9. **Front matter w TOML** (nie YAML) – Hugo używa TOML domyślnie.
+10. **Każdy post i opis umiejętności jako page bundle** (katalog z `index.md` + ew. obrazy), nie jako pojedynczy plik `.md`.
+
+---
+
+## Hugo commands reference
+
+```bash
+# Lokalny serwer developerski (z draftami, bez cache SCSS)
+hugo server -D --disableFastRender
+
+# Budowa finalnej wersji do public/
+hugo
+
+# Nowy artykuł (używa archetypes/posts.md)
+hugo new posts/nazwa-postu/index.md
+
+# Nowy opis umiejętności (używa archetypes/skills.md)
+hugo new skills/vlan/index.md
+
+# Sprawdzenie poprawności konfiguracji
+hugo config
+
+# Lista wszystkich treści
+hugo list all
+```

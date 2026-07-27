@@ -1,0 +1,60 @@
+{{ $skills := hugo.Data.skills }}
+
+{{ range $skills.categories }}
+  {{ $subskills := .subskills }}
+  {{ $hasSubskills := gt (len $subskills) 0 }}
+
+  {{ if $hasSubskills }}
+    {{/* Obliczanie średniej z subskills */}}
+    {{ $total := 0 }}
+    {{ $count := len $subskills }}
+    {{ range $subskills }}{{ $total = add $total .level }}{{ end }}
+    {{ $avg := div $total $count }}
+
+    {{ $firstSlug := "" }}
+    {{ range first 1 $subskills }}{{ $firstSlug = .slug }}{{ end }}
+
+    <div class="skill-category">
+      <div class="skill-category-header" onclick="this.classList.toggle('open');this.nextElementSibling.nextElementSibling.classList.toggle('open')">
+        <span class="chevron">▶</span>
+        <span class="skill-cat-name">
+          <a href="/skills/{{ $firstSlug }}/">{{ .name }}</a>
+        </span>
+        <span class="skill-cat-pct">{{ $avg }}%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width:{{ $avg }}%"></div>
+      </div>
+      <div class="skill-subskills">
+        {{ range $subskills }}
+          <div class="skill-subskill">
+            <span class="sub-name">
+              {{ if .slug }}
+                <a href="/skills/{{ .slug }}/">{{ .name }}</a>
+              {{ else }}
+                {{ .name }}
+              {{ end }}
+            </span>
+            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:{{ .level }}%"></div></div>
+            <span class="sub-pct">{{ .level }}%</span>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  {{ else }}
+    {{/* Kategoria bez subskills - prosty pasek */}}
+    <div class="skill-simple">
+      <span class="skill-name">
+        {{ if .slug }}
+          <a href="/skills/{{ .slug }}/">{{ .name }}</a>
+        {{ else }}
+          {{ .name }}
+        {{ end }}
+      </span>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width:{{ .level }}%"></div>
+      </div>
+      <span class="skill-pct">{{ .level }}%</span>
+    </div>
+  {{ end }}
+{{ end }}

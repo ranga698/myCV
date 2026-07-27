@@ -1,0 +1,36 @@
+{{ define "main" }}
+<section class="container" id="articles-page">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+
+  {{ partial "filter-bar.html" . }}
+
+  <div class="entries-list" id="entries-list">
+    {{ range .Pages }}
+      <article class="entry-card" data-type="{{ .Type }}">
+        <div class="entry-type {{ if eq .Type "skill" }}skill-type{{ else }}post-type{{ end }}">
+          {{ if eq .Type "skill" }}🔧 Opis umiejętności{{ else }}📝 Artykuł{{ end }}
+        </div>
+        <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
+        <div class="entry-date">{{ .Date.Format "2 January 2006" }}</div>
+        <p class="entry-excerpt">{{ .Description | default .Summary | truncate 200 }}</p>
+      </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+document.querySelectorAll('.filter-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+    this.classList.add('active');
+    var filter = this.dataset.filter;
+    document.querySelectorAll('.entry-card').forEach(function(card) {
+      card.style.display = (filter === 'all' || card.dataset.type === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
+{{ end }}

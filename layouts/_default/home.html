@@ -1,0 +1,17 @@
+{{ define "main" }}
+<section class="container" id="cv-page">
+  <div class="cv-layout">
+    {{ partial "cv-hero.html" . }}
+    <main class="cv-main">
+      {{ with hugo.Data.profile }}
+        <h2>O mnie</h2>
+        <p class="summary">{{ .summary | markdownify }}</p>
+      {{ end }}
+
+      <h2>Umiejętności</h2>
+      <p class="skills-hint">Kliknij w&nbsp;umiejętność, żeby dowiedzieć się więcej&nbsp;↗</p>
+      {{ partial "cv-skills.html" . }}
+    </main>
+  </div>
+</section>
+{{ end }}

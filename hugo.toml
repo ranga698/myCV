@@ -1,80 +1,16 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://twojadomena.pl/'
 locale = 'pl-PL'
-title = 'CV - Moje Portfolio'
-theme = 'PaperMod'
+title = 'Jan Babkiewicz – CV & Blog'
+timeZone = 'Europe/Warsaw'
+theme = ''
 
-# PaperMod specific settings
-paginate = 5
-enableEmoji = true
-enableRobotsTXT = true
-buildDrafts = false
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [params]
-  env = 'production'
-  title = 'CV - Moje Portfolio'
-  description = 'Strona CV z moim portfolio i doświadczeniem'
-  keywords = ['CV', 'portfolio', 'programowanie']
-  author = 'Imię Nazwisko'
-  DateFormat = '2006-01-02'
-  defaultTheme = 'auto'
-  disableThemeToggle = false
-  ShowReadingTime = true
-  ShowShareButtons = false
-  ShowPostNavLinks = true
-  ShowBreadCrumbs = true
-  ShowCodeCopyButtons = true
-  ShowWordCount = true
-  ShowRssButtonInSectionTermList = true
-  UseHugoToc = true
-  disableSpecial1stPost = false
-  disableScrollToTop = false
-  comments = false
-  hidemeta = false
-  hideSummary = false
-  showtoc = false
-  tocopen = false
+  description = "IT/OT – CV online i blog techniczny"
+  avatar = "/images/avatar.webp"
 
-  [params.homeInfoParams]
-    Title = 'Witaj na mojej stronie CV'
-    Content = 'Inżynier oprogramowania | Pasjonat technologii'
-
-  [[params.socialIcons]]
-    name = 'github'
-    url = 'https://github.com/twojlogin'
-  [[params.socialIcons]]
-    name = 'linkedin'
-    url = 'https://linkedin.com/in/twojprofil'
-  [[params.socialIcons]]
-    name = 'email'
-    url = 'mailto:twoj@email.com'
-
-[menu]
-  [[menu.main]]
-    identifier = 'about'
-    name = 'O mnie'
-    url = '/about/'
-    weight = 10
-
-  [[menu.main]]
-    identifier = 'experience'
-    name = 'Doświadczenie'
-    url = '/experience/'
-    weight = 20
-
-  [[menu.main]]
-    identifier = 'projects'
-    name = 'Projekty'
-    url = '/projects/'
-    weight = 30
-
-  [[menu.main]]
-    identifier = 'contact'
-    name = 'Kontakt'
-    url = '/contact/'
-    weight = 40
-
-  [[menu.main]]
-    identifier = 'search'
-    name = 'Szukaj'
-    url = '/search/'
-    weight = 50
+disableKinds = ["taxonomy", "term", "RSS", "sitemap"]

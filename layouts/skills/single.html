@@ -1,0 +1,19 @@
+{{ define "main" }}
+<section class="container">
+  <article class="single-page">
+    <span class="entry-type skill-type" style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;display:block;color:#e67e22;">🔧 Opis umiejętności</span>
+    <h1>{{ .Title }}</h1>
+    <div class="entry-date">{{ .Date.Format "2 January 2006" }}</div>
+    {{ if .Params.tags }}
+      <div class="tags">
+        {{ range .Params.tags }}
+          <span class="tag">{{ . }}</span>
+        {{ end }}
+      </div>
+    {{ end }}
+    <div class="content">
+      {{ .Content }}
+    </div>
+  </article>
+</section>
+{{ end }}

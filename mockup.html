@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Mockup – podgląd koncepcji</title>
+<style>
+/* ===== RESET ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;font-size:16px;line-height:1.6;color:#191919;background:#f3f2ef}
+
+/* ===== LAYOUT ===== */
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+
+/* ===== HEADER ===== */
+.site-header{background:#fff;border-bottom:1px solid #e0e0e0;padding:12px 0;position:sticky;top:0;z-index:10}
+.site-header .container{display:flex;justify-content:space-between;align-items:center;padding-top:0;padding-bottom:0}
+.site-header .logo{font-weight:700;font-size:1.2rem;color:#0a66c2;text-decoration:none}
+.site-header nav a{color:#666;text-decoration:none;margin-left:24px;font-size:.9rem;transition:color .2s}
+.site-header nav a:hover,.site-header nav a.active{color:#0a66c2}
+.site-header nav a.active{font-weight:600}
+
+/* ===== CV HERO (lewa+prawa kolumna) ===== */
+.cv-layout{display:grid;grid-template-columns:300px 1fr;gap:24px;background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:hidden;margin-bottom:24px}
+
+.cv-sidebar{background:#fff;padding:32px 24px;text-align:center;border-right:1px solid #f0f0f0}
+.cv-avatar{width:160px;height:160px;border-radius:50%;border:3px solid #0a66c2;object-fit:cover;margin-bottom:16px;background:#e8e8e8}
+.cv-sidebar h1{font-size:1.3rem;margin-bottom:4px;color:#191919}
+.cv-sidebar .title{font-size:.9rem;color:#666;margin-bottom:8px}
+.cv-sidebar .location{font-size:.85rem;color:#999;margin-bottom:16px}
+.cv-sidebar .social-icons{display:flex;justify-content:center;gap:12px}
+.cv-sidebar .social-icons a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#f3f2ef;color:#666;text-decoration:none;font-size:.8rem;font-weight:700;transition:all .2s}
+.cv-sidebar .social-icons a:hover{background:#0a66c2;color:#fff}
+
+.cv-main{padding:32px 32px 32px 8px}
+.cv-main h2{font-size:1.1rem;color:#191919;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #0a66c2;display:inline-block}
+.cv-main .summary{color:#444;margin-bottom:28px;line-height:1.7}
+
+/* ===== SKILL BARS ===== */
+.skill-category{margin-bottom:20px}
+.skill-category-header{display:flex;align-items:center;gap:8px;cursor:pointer;padding:6px 0;user-select:none;border-radius:4px;transition:background .15s}
+.skill-category-header:hover{background:#f8f9fa}
+.skill-category-header .chevron{font-size:.7rem;color:#999;transition:transform .25s;display:inline-block}
+.skill-category-header.open .chevron{transform:rotate(90deg)}
+.skill-cat-name{font-weight:600;font-size:.95rem;flex:1}
+.skill-cat-name a{color:#0a66c2;text-decoration:none}
+.skill-cat-name a:hover{text-decoration:underline}
+.skill-cat-pct{font-size:.85rem;color:#666;font-weight:600;min-width:38px;text-align:right}
+
+/* Main progress bar */
+.progress-bar{height:10px;background:#e0e0e0;border-radius:4px;overflow:hidden;margin:4px 0 0 24px}
+.progress-fill{height:100%;background:#0a66c2;border-radius:4px;transition:width .6s ease}
+
+/* Subskills */
+.skill-subskills{display:none;margin-left:24px;padding-top:4px}
+.skill-subskills.open{display:block}
+.skill-subskill{display:flex;align-items:center;gap:8px;padding:4px 0;font-size:.88rem}
+.skill-subskill .sub-name{flex:1}
+.skill-subskill .sub-name a{color:#191919;text-decoration:none;transition:color .15s}
+.skill-subskill .sub-name a:hover{color:#0a66c2;text-decoration:underline}
+.skill-subskill .sub-pct{font-size:.8rem;color:#999;min-width:34px;text-align:right}
+.progress-bar-sm{height:6px;background:#e0e0e0;border-radius:3px;overflow:hidden;flex:1;max-width:200px}
+.progress-fill-sm{height:100%;background:#0a66c2;border-radius:3px}
+
+/* Simple skill (no subskills) */
+.skill-simple{display:flex;align-items:center;gap:8px;margin-bottom:20px}
+.skill-simple .skill-name{font-weight:600;font-size:.95rem;min-width:120px}
+.skill-simple .skill-name a{color:#191919;text-decoration:none}
+.skill-simple .skill-name a:hover{color:#0a66c2}
+.skill-simple .progress-bar{flex:1;margin:0}
+.skill-simple .skill-pct{font-size:.85rem;color:#666;font-weight:600;min-width:38px;text-align:right}
+
+/* ===== FILTER BAR ===== */
+.filter-bar{display:flex;gap:0;margin-bottom:24px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.filter-btn{flex:1;padding:12px 20px;border:none;background:#fff;color:#666;font-size:.9rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:inherit}
+.filter-btn:hover{background:#f3f2ef}
+.filter-btn.active{background:#0a66c2;color:#fff;font-weight:600}
+
+/* ===== ENTRY CARDS ===== */
+.entry-card{background:#fff;border-radius:8px;padding:20px 24px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);transition:box-shadow .2s}
+.entry-card:hover{box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.entry-card .entry-type{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.entry-card .entry-type.post-type{color:#0a66c2}
+.entry-card .entry-type.skill-type{color:#e67e22}
+.entry-card h3{font-size:1.05rem;margin-bottom:4px}
+.entry-card h3 a{color:#191919;text-decoration:none;transition:color .15s}
+.entry-card h3 a:hover{color:#0a66c2}
+.entry-card .entry-date{font-size:.8rem;color:#999;margin-bottom:8px}
+.entry-card .entry-excerpt{font-size:.9rem;color:#555;line-height:1.6}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .cv-layout{grid-template-columns:1fr}
+  .cv-sidebar{border-right:none;border-bottom:1px solid #f0f0f0;padding:24px 16px}
+  .cv-main{padding:24px 16px}
+  .skill-subskills{margin-left:12px}
+  .filter-bar{flex-direction:column}
+  .container{padding:16px 12px}
+}
+
+/* ===== SECTION DIVIDER ===== */
+.section-label{text-align:center;margin:40px 0 20px;color:#999;font-size:.85rem;text-transform:uppercase;letter-spacing:1px}
+.section-label::before,.section-label::after{content:" ── ";color:#ddd}
+
+/* ===== FOOTER ===== */
+.site-footer{text-align:center;padding:32px 16px;color:#999;font-size:.85rem;border-top:1px solid #e0e0e0;margin-top:40px}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">Jan Kowalski</a>
+    <nav>
+      <a href="/" class="active">CV</a>
+      <a href="/posts/">Artykuły i opisy</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ==================================================================== -->
+<!-- STRONA 1: CV                                                         -->
+<!-- ==================================================================== -->
+<section class="container" id="cv-page">
+
+  <div class="cv-layout">
+    <!-- LEWA KOLUMNA -->
+    <aside class="cv-sidebar">
+      <!-- Placeholder avatar – szary okrąg z inicjałami -->
+      <svg class="cv-avatar" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <rect width="160" height="160" fill="#d0d7de" rx="80"/>
+        <text x="80" y="95" text-anchor="middle" font-size="55" font-weight="700" fill="#8b949e" font-family="system-ui,sans-serif">JK</text>
+      </svg>
+      <h1>Jan Kowalski</h1>
+      <p class="title">IT Infrastructure Engineer</p>
+      <p class="location">📍 Warszawa, Polska</p>
+      <div class="social-icons">
+        <a href="#" title="GitHub">GH</a>
+        <a href="#" title="LinkedIn">in</a>
+        <a href="#" title="Email">@</a>
+      </div>
+    </aside>
+
+    <!-- PRAWA KOLUMNA -->
+    <main class="cv-main">
+      <h2>O mnie</h2>
+      <p class="summary">
+        Inżynier infrastruktury IT z 5-letnim doświadczeniem w administracji
+        systemami Linux, sieciach komputerowych, wirtualizacji (Proxmox)
+        i self-hostingu. Specjalizuję się w budowie i utrzymaniu infrastruktury
+        dla małych i średnich firm. Entuzjasta open-source i minimalizmu technologicznego.
+      </p>
+
+      <h2>Umiejętności</h2>
+
+      <!-- Umiejętność 1: Sieci (z subskills, rozwinięte domyślnie) -->
+      <div class="skill-category">
+        <div class="skill-category-header open" onclick="this.classList.toggle('open');this.nextElementSibling.nextElementSibling.classList.toggle('open')">
+          <span class="chevron">▶</span>
+          <span class="skill-cat-name"><a href="/skills/vlan/">Sieci</a></span>
+          <span class="skill-cat-pct">78%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:78%"></div>
+        </div>
+        <div class="skill-subskills open">
+          <div class="skill-subskill">
+            <span class="sub-name"><a href="/skills/vlan/">VLAN & trunking (802.1Q)</a></span>
+            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:85%"></div></div>
+            <span class="sub-pct">85%</span>
+          </div>
+          <div class="skill-subskill">
+            <span class="sub-name"><a href="/skills/stp/">STP / RSTP / MSTP</a></span>
+            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:70%"></div></div>
+            <span class="sub-pct">70%</span>
+          </div>
+          <div class="skill-subskill">
+            <span class="sub-name"><a href="/skills/routing/">Routing (OSPF, BGP)</a></span>
+            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:65%"></div></div>
+            <span class="sub-pct">65%</span>
+          </div>
+          <div class="skill-subskill">
+            <span class="sub-name"><a href="/skills/opnsense/">Firewall / OPNsense</a></span>
+            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:80%"></div></div>
+            <span class="sub-pct">80%</span>
+          </div>
+          <div class="skill-subskill">
+            <span class="sub-name"><a href="/skills/vpn/">VPN (WireGuard, IPsec)</a></span>
+            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:75%"></div></div>
+            <span class="sub-pct">75%</span>
+          </div>
+          <div class="skill-subskill">
+            <span class="sub-name"><a href="/skills/mikrotik/">MikroTik / RouterOS</a></span>
+            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:72%"></div></div>
+            <span class="sub-pct">72%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Umiejętność 2: Linux (zwinięta domyślnie) -->
+      <div class="skill-category">
+        <div class="skill-category-header" onclick="this.classList.toggle('open');this.nextElementSibling.nextElementSibling.classList.toggle('open')">
+          <span class="chevron">▶</span>
+          <span class="skill-cat-name"><a href="/skills/linux-admin/">Linux</a></span>
+          <span class="skill-cat-pct">71%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:71%"></div>
+        </div>
+        <div class="skill-subskills">
+          <div class="skill-subskill">
+            <span class="sub-name"><a href="/skills/linux-admin/">Administracja (systemd, logi)</a></span>
+            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:78%"></div></div>
+            <span class="sub-pct">78%</span>
+          </div>
+          <div class="skill-subskill">
+            <span class="sub-name"><a href="/skills/bash/">Bash & skryptowanie</a></span>
+            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:65%"></div></div>
+            <span class="sub-pct">65%</span>
+          </div>
+          <div class="skill-subskill">
+            <span class="sub-name"><a href="/skills/lxc/">LXC / konteneryzacja</a></span>
+            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:70%"></div></div>
+            <span class="sub-pct">70%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Umiejętność 3: Wirtualizacja -->
+      <div class="skill-category">
+        <div class="skill-category-header" onclick="this.classList.toggle('open');this.nextElementSibling.nextElementSibling.classList.toggle('open')">
+          <span class="chevron">▶</span>
+          <span class="skill-cat-name"><a href="/skills/proxmox/">Wirtualizacja</a></span>
+          <span class="skill-cat-pct">71%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:71%"></div>
+        </div>
+        <div class="skill-subskills">
+          <div class="skill-subskill">
+            <span class="sub-name"><a href="/skills/proxmox/">Proxmox VE</a></span>
+            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:82%"></div></div>
+            <span class="sub-pct">82%</span>
+          </div>
+          <div class="skill-subskill">
+            <span class="sub-name"><a href="/skills/docker/">Docker</a></span>
+            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:60%"></div></div>
+            <span class="sub-pct">60%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Umiejętność 4: DevOps -->
+      <div class="skill-category">
+        <div class="skill-category-header" onclick="this.classList.toggle('open');this.nextElementSibling.nextElementSibling.classList.toggle('open')">
+          <span class="chevron">▶</span>
+          <span class="skill-cat-name"><a href="/skills/git/">DevOps</a></span>
+          <span class="skill-cat-pct">55%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:55%"></div>
+        </div>
+        <div class="skill-subskills">
+          <div class="skill-subskill">
+            <span class="sub-name"><a href="/skills/git/">Git / GitHub</a></span>
+            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:70%"></div></div>
+            <span class="sub-pct">70%</span>
+          </div>
+          <div class="skill-subskill">
+            <span class="sub-name"><a href="/skills/ansible/">Ansible</a></span>
+            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:45%"></div></div>
+            <span class="sub-pct">45%</span>
+          </div>
+          <div class="skill-subskill">
+            <span class="sub-name"><a href="/skills/cicd/">CI/CD (GitHub Actions)</a></span>
+            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:50%"></div></div>
+            <span class="sub-pct">50%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Umiejętność 5: n8n (prosty pasek, bez subskills) -->
+      <div class="skill-simple">
+        <span class="skill-name"><a href="/skills/n8n/">n8n</a></span>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:60%"></div>
+        </div>
+        <span class="skill-pct">60%</span>
+      </div>
+
+      <!-- Umiejętność 6: Monitoring -->
+      <div class="skill-category">
+        <div class="skill-category-header" onclick="this.classList.toggle('open');this.nextElementSibling.nextElementSibling.classList.toggle('open')">
+          <span class="chevron">▶</span>
+          <span class="skill-cat-name"><a href="/skills/prometheus/">Monitoring</a></span>
+          <span class="skill-cat-pct">42%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:42%"></div>
+        </div>
+        <div class="skill-subskills">
+          <div class="skill-subskill">
+            <span class="sub-name"><a href="/skills/prometheus/">Prometheus + Grafana</a></span>
+            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:48%"></div></div>
+            <span class="sub-pct">48%</span>
+          </div>
+          <div class="skill-subskill">
+            <span class="sub-name"><a href="/skills/zabbix/">Zabbix</a></span>
+            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:35%"></div></div>
+            <span class="sub-pct">35%</span>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</section>
+
+<!-- ==================================================================== -->
+<!-- STRONA 2: ARTYKUŁY I OPISY (z filtrowaniem)                          -->
+<!-- ==================================================================== -->
+<div class="section-label">STRONA DRUGA: ARTYKUŁY I OPISY</div>
+
+<section class="container" id="articles-page">
+
+  <!-- FILTER BAR -->
+  <nav class="filter-bar">
+    <button class="filter-btn active" data-filter="all">📋 Wszystko</button>
+    <button class="filter-btn" data-filter="post">📝 Artykuły</button>
+    <button class="filter-btn" data-filter="skill">🔧 Opisy umiejętności</button>
+  </nav>
+
+  <!-- ENTRY CARDS -->
+  <article class="entry-card" data-type="post">
+    <div class="entry-type post-type">📝 Artykuł</div>
+    <h3><a href="#">Jak skonfigurować VLAN na przełączniku MikroTik</a></h3>
+    <div class="entry-date">15 stycznia 2026</div>
+    <p class="entry-excerpt">Praktyczny przewodnik krok po kroku: konfiguracja VLAN-ów na switchu MikroTik CRS326, trunking, access porty i testowanie łączności między VLAN-ami...</p>
+  </article>
+
+  <article class="entry-card" data-type="skill">
+    <div class="entry-type skill-type">🔧 Opis umiejętności</div>
+    <h3><a href="#">VLAN & trunking (802.1Q) – szczegółowy opis</a></h3>
+    <div class="entry-date">10 stycznia 2026</div>
+    <p class="entry-excerpt">Czym jest VLAN tagging? Jak działa 802.1Q? Różnica między access portem a trunk portem. Native VLAN i jego pułapki. Praktyczne przykłady konfiguracji na Cisco IOS i MikroTik RouterOS...</p>
+  </article>
+
+  <article class="entry-card" data-type="post">
+    <div class="entry-type post-type">📝 Artykuł</div>
+    <h3><a href="#">Proxmox + LXC: idealne środowisko do self-hostingu</a></h3>
+    <div class="entry-date">3 stycznia 2026</div>
+    <p class="entry-excerpt">Dlaczego LXC zamiast Docker? Porównanie wydajności, izolacji i łatwości zarządzania. Przykład: jak postawiłem OpenWebUI w kontenerze LXC na Proxmox...</p>
+  </article>
+
+  <article class="entry-card" data-type="skill">
+    <div class="entry-type skill-type">🔧 Opis umiejętności</div>
+    <h3><a href="#">Firewall / OPNsense – szczegółowy opis</a></h3>
+    <div class="entry-date">28 grudnia 2025</div>
+    <p class="entry-excerpt">OPNsense jako firewall nowej generacji. Konfiguracja reguł, aliasy, NAT, VLAN interfaces, DHCP server, Unbound DNS, WireGuard road-warrior setup. Doświadczenie z produkcyjnych wdrożeń...</p>
+  </article>
+
+  <article class="entry-card" data-type="post">
+    <div class="entry-type post-type">📝 Artykuł</div>
+    <h3><a href="#">WireGuard na OPNsense – praktyczny setup krok po kroku</a></h3>
+    <div class="entry-date">20 grudnia 2025</div>
+    <p class="entry-excerpt">Kompletna konfiguracja WireGuard na OPNsense: tworzenie interfejsu, generowanie kluczy, konfiguracja peerów, reguły firewall i testowanie połączenia z klienta mobilnego...</p>
+  </article>
+
+  <article class="entry-card" data-type="skill">
+    <div class="entry-type skill-type">🔧 Opis umiejętności</div>
+    <h3><a href="#">Proxmox VE – szczegółowy opis</a></h3>
+    <div class="entry-date">15 grudnia 2025</div>
+    <p class="entry-excerpt">Architektura Proxmox VE. Zarządzanie storage (ZFS, LVM-thin, Ceph). Sieci w Proxmox: bridge, VLAN-aware, SDN. Klaster, high availability, backup i restore. Doświadczenie z produkcyjnych środowisk...</p>
+  </article>
+
+</section>
+
+<footer class="site-footer">
+  <p>© 2026 Jan Kowalski · Strona statyczna zbudowana w Hugo</p>
+</footer>
+
+<!-- Jedyny JS na stronie – filtrowanie -->
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.entry-card').forEach(card => {
+      card.style.display = (filter === 'all' || card.dataset.type === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
+
+</body>
+</html>

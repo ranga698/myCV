@@ -1,0 +1,48 @@
+<aside class="cv-sidebar">
+  {{ $profile := hugo.Data.profile }}
+  {{ $avatar := $profile.avatar | default "/images/avatar.webp" }}
+  {{ $avatarPath := printf "static/%s" $avatar }}
+  {{ if (fileExists $avatarPath) }}
+    <img src="{{ $avatar }}" alt="{{ $profile.name }}" class="cv-avatar" width="160" height="160">
+  {{ else }}
+    <svg class="cv-avatar" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+      <rect width="160" height="160" fill="#d0d7de" rx="80"/>
+      <text x="80" y="95" text-anchor="middle" font-size="55" font-weight="700" fill="#8b949e" font-family="system-ui,sans-serif">
+        {{- $initials := "" }}
+        {{- range split $profile.name " " }}{{ $initials = printf "%s%s" $initials (substr . 0 1) }}{{ end }}
+        {{- upper $initials -}}
+      </text>
+    </svg>
+  {{ end }}
+
+  <h1>{{ $profile.name }}</h1>
+  <p class="title">{{ $profile.title }}</p>
+  <p class="location">📍 {{ $profile.location }}</p>
+
+  <div class="contact-info">
+    {{ if $profile.phone }}
+      <p class="contact-item">📞 {{ $profile.phone }}</p>
+    {{ end }}
+    {{ if $profile.email }}
+      <p class="contact-item">✉️ <a href="mailto:{{ $profile.email }}">{{ $profile.email }}</a></p>
+    {{ end }}
+  </div>
+
+  <div class="social-icons">
+    {{ range $profile.social }}
+      <a href="{{ .url }}" title="{{ .name }}" target="_blank" rel="noopener">
+        {{ if eq .icon "linkedin" }}
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        {{ else if eq .icon "email" }}
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 12.713l-11.985-9.713h23.971l-11.986 9.713zm-12-8.713v16h24v-16h-24z"/>
+          </svg>
+        {{ else }}
+          {{ .name }}
+        {{ end }}
+      </a>
+    {{ end }}
+  </div>
+</aside>

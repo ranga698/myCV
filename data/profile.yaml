@@ -1,0 +1,23 @@
+name: "Jan Babkiewicz"
+title: "IT/OT"
+email: "kontakt@example.com"
+phone: "+48 123 456 789"
+location: "Poznań, Polska"
+avatar: "/images/avatar.webp"
+summary: >
+  Inżynier infrastruktury IT z 5-letnim doświadczeniem w administracji
+  systemami Linux, sieciach komputerowych, wirtualizacji (Proxmox)
+  i self-hostingu. Specjalizuję się w budowie i utrzymaniu infrastruktury
+  dla&nbsp;małych i&nbsp;średnich firm. Entuzjasta open-source i&nbsp;minimalizmu technologicznego.
+social:
+  - name: LinkedIn
+    url: "https://linkedin.com/in/username"
+    icon: linkedin
+  - name: Email
+    url: "mailto:kontakt@example.com"
+    icon: email
+languages:
+  - name: Polski
+    level: ojczysty
+  - name: Angielski
+    level: B2

@@ -1,0 +1,9 @@
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">{{ hugo.Data.profile.name | default .Site.Title }}</a>
+    <nav>
+      <a href="/" class="{{ if .IsHome }}active{{ end }}">CV</a>
+      <a href="/posts/" class="{{ if eq .Section "posts" }}active{{ end }}">Artykuły i opisy</a>
+    </nav>
+  </div>
+</header>
