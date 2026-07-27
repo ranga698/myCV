@@ -1,7 +1,7 @@
 name: "Jan Babkiewicz"
 title: "IT/OT"
-email: "kontakt@example.com"
-phone: "+48 123 456 789"
+email: "babkiewiczjan@gmail.com"
+phone: "+48 698 407 xxx"
 location: "Poznań, Polska"
 avatar: "/images/avatar.webp"
 summary: >
@@ -12,10 +12,10 @@ summary: >
   Po godzinach realizuję autorski projekt w którym rozwijam swój HomeLab i intensywnie rozwijam umiejętności sieciowe na poziomie CCNA
 social:
   - name: LinkedIn
-    url: "https://linkedin.com/in/username"
+    url: "https://pl.linkedin.com/in/jan-babkiewicz-b549a91b2"
     icon: linkedin
   - name: Email
-    url: "mailto:kontakt@example.com"
+    url: "mailto:babkiewiczjan@gmail.com"
     icon: email
 languages:
   - name: Polski
