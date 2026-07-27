@@ -5,7 +5,7 @@
     <main class="cv-main">
       {{ with .Site.Data.profile }}
         <h2>Kim jestem</h2>
-        <p class="summary">{{ .summary | markdownify }}</p>
+        <div class="summary">{{ .summary | markdownify }}</div>
       {{ end }}
 
       <h2>Umiejętności</h2>
