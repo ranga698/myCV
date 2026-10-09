@@ -205,6 +205,23 @@
   color: #c9c9c9; // szary pusty - nie wykonane
 }
 
+// ===== NAPIS PO ROZWINIECIU KATEGORII =====
+.skill-more-hint {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  font-style: italic;
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    transition: all 0.2s;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
 // ===== OPIS UMIEJĘTNOŚCI (kwadracik pod nazwą) =====
 .skill-item-desc {
   background: #eef3f9;
