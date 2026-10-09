@@ -19,9 +19,13 @@
 
     {{ if $hasSubskills }}
       <div class="skill-subskills">
+        <div class="skill-toggle-all-row">
+          <button type="button" class="toggle-all-btn">ZWIŃ</button>
+        </div>
         {{ range $subskills }}
-          <div class="skill-item">
-            <div class="skill-item-head">
+          <div class="skill-item open">
+            <div class="skill-item-head" onclick="this.parentElement.classList.toggle('open')">
+              <span class="item-chevron">▶</span>
               <span class="skill-item-name">
                 <a href="/">{{ .name }}</a>
               </span>
@@ -47,3 +51,16 @@
     {{ end }}
   </div>
 {{ end }}
+
+{{/* ZWINS / ROZWIN - zbiorcze zwijanie/rozwijanie itemow w kategorii */}}
+<script>
+document.querySelectorAll('.toggle-all-btn').forEach(function(btn){
+  var cat = btn.closest('.skill-category');
+  btn.addEventListener('click', function(){
+    var items = cat.querySelectorAll('.skill-item');
+    var anyOpen = Array.prototype.some.call(items, function(it){ return it.classList.contains('open'); });
+    items.forEach(function(it){ it.classList.toggle('open', !anyOpen); });
+    btn.textContent = anyOpen ? 'ROZWIŃ' : 'ZWIŃ';
+  });
+});
+</script>
