@@ -2,15 +2,15 @@ categories:
   - name: OT
     stars: 3.5
     subskills:
-      - name: Maska
+      - name: Subnet
         status: done
-        desc: "Znajomosc maski, umiejetnosc obliczniaa, wiem po co jest , gdzie sie stousje, z jakiego powodu, umiem to szybki liczyc, rozmem RCDI, FDSa,DSA"
+        desc: "Obliczanie subnet, skrócony zapis, FLSM, VLSM, klasowość, bezklasowość"
       - name: Wildcard Mask
         status: progress
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        desc: "Zastosowanie (OSPF), obliczanie"
       - name: VLAN
         status: done
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        desc: "Powód stosowania VLAN, konfiguracja access port, trunk port, native-VLAN, Router-On-The-Stick, Inter-VLAN via SVI, podział na grupy VLAN - maska + IP, routing L3, switch L3 vs router L3"
       - name: STP/RSTP
         status: progress
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
