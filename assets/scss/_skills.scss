@@ -57,31 +57,51 @@
   }
 }
 
-.skill-cat-pct {
-  font-size: 0.85rem;
-  color: $text-secondary;
-  font-weight: 600;
-  min-width: 38px;
-  text-align: right;
+// ===== GWIAZDKI (5-gwiazdkowy progres) =====
+.stars {
+  display: inline-flex;
+  gap: 2px;
 }
 
-// ===== PROGRESS BAR =====
-.progress-bar {
-  height: 10px;
-  background: $progress-bg;
-  border-radius: 4px;
+.star {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+}
+
+.star svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.star-base {
+  fill: #d8d8d8;
+}
+
+.star-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
   overflow: hidden;
-  margin: 4px 0 0 24px;
+  white-space: nowrap;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: #f5a623;
+  }
 }
 
-.progress-fill {
-  height: 100%;
-  background: $primary;
-  border-radius: 4px;
-  transition: width 0.6s ease;
+.skill-stars-slot {
+  min-width: 100px;
+  display: inline-flex;
+  justify-content: flex-end;
 }
 
-// ===== SUBSKILLS =====
+// ===== SUBSKILLS (rozwijana lista) =====
 .skill-subskills {
   display: none;
   margin-left: 24px;
@@ -92,109 +112,71 @@
   }
 }
 
-.skill-subskill {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.skill-item {
   padding: 4px 0;
   font-size: 0.88rem;
-
-  .sub-name {
-    flex: 1;
-
-    a {
-      color: $text-primary;
-      text-decoration: none;
-      border-bottom: 1px dashed transparent;
-      transition: all 0.2s;
-
-      &::after {
-        content: ' ↗';
-        font-size: 0.7rem;
-        opacity: 0;
-        transition: opacity 0.2s;
-      }
-
-      &:hover {
-        color: $primary;
-        border-bottom-color: rgba($primary, 0.3);
-
-        &::after {
-          opacity: 0.6;
-        }
-      }
-    }
-  }
-
-  .sub-pct {
-    font-size: 0.8rem;
-    color: $text-muted;
-    min-width: 34px;
-    text-align: right;
-  }
 }
 
-.progress-bar-sm {
-  height: 6px;
-  background: $progress-bg;
-  border-radius: 3px;
-  overflow: hidden;
-  flex: 1;
-  max-width: 200px;
-}
-
-.progress-fill-sm {
-  height: 100%;
-  background: $primary;
-  border-radius: 3px;
-}
-
-// ===== SIMPLE SKILL (NO SUBSKILLS) =====
-.skill-simple {
+.skill-item-head {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 20px;
+  gap: 10px;
+}
 
-  .skill-name {
-    font-weight: 600;
-    font-size: 0.95rem;
-    min-width: 120px;
+.skill-item-name {
+  flex: 1;
 
-    a {
-      color: $text-primary;
-      text-decoration: none;
-      border-bottom: 1px dashed transparent;
-      transition: all 0.2s;
+  a {
+    color: $text-primary;
+    text-decoration: none;
+    transition: color 0.15s;
 
-      &::after {
-        content: ' ↗';
-        font-size: 0.7rem;
-        opacity: 0;
-        transition: opacity 0.2s;
-      }
-
-      &:hover {
-        color: $primary;
-        border-bottom-color: rgba($primary, 0.3);
-
-        &::after {
-          opacity: 0.6;
-        }
-      }
+    &:hover {
+      color: $primary;
     }
   }
+}
 
-  .progress-bar {
-    flex: 1;
+// ===== STATUS (wykonane / w trakcie / puste) =====
+.skill-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  flex-shrink: 0;
+}
+
+.skill-status .status-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.status-done .status-icon {
+  fill: #2e9e5b; // zielony ptaszek - wykonane
+}
+
+.status-progress .status-icon {
+  fill: #8fd6ac; // mniej zielony ptaszek - w trakcie
+  border-bottom: 2px solid #8fd6ac;
+  padding-bottom: 1px;
+  margin-bottom: 2px;
+}
+
+.status-empty .status-icon {
+  color: #c9c9c9; // szary pusty - nie wykonane
+}
+
+// ===== OPIS UMIEJĘTNOŚCI (kwadracik pod nazwą) =====
+.skill-item-desc {
+  background: #eef3f9;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: 6px 0 14px 0;
+
+  p {
     margin: 0;
-  }
-
-  .skill-pct {
-    font-size: 0.85rem;
-    color: $text-secondary;
-    font-weight: 600;
-    min-width: 38px;
-    text-align: right;
+    font-size: 0.8rem;
+    color: #555;
+    line-height: 1.55;
   }
 }

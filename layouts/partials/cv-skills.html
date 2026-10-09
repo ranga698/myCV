@@ -4,63 +4,46 @@
   {{ $subskills := .subskills }}
   {{ $hasSubskills := gt (len $subskills) 0 }}
 
-  {{ if $hasSubskills }}
-    {{/* Obliczanie średniej z subskills */}}
-    {{ $total := 0 }}
-    {{ $count := len $subskills }}
-    {{ range $subskills }}{{ $total = add $total .level }}{{ end }}
-    {{ $avg := div $total $count }}
-
-    {{ $firstSlug := "" }}
-    {{ $firstUrl := "" }}
-    {{ range first 1 $subskills }}
-      {{ $firstSlug = .slug }}
-      {{ if .url }}{{ $firstUrl = .url }}{{ else }}{{ $firstUrl = printf "/skills/%s/" .slug }}{{ end }}
-    {{ end }}
-
-    <div class="skill-category">
-      <div class="skill-category-header" onclick="this.classList.toggle('open');this.nextElementSibling.nextElementSibling.classList.toggle('open')">
+  <div class="skill-category">
+    <div class="skill-category-header" {{ if $hasSubskills }}onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"{{ end }}>
+      {{ if $hasSubskills }}
         <span class="chevron">▶</span>
-        <span class="skill-cat-name">
-          <a href="{{ $firstUrl }}">{{ .name }}</a>
-        </span>
-        <span class="skill-cat-pct">{{ $avg }}%</span>
-      </div>
-      <div class="progress-bar">
-        <div class="progress-fill" style="width:{{ $avg }}%"></div>
-      </div>
+      {{ end }}
+      <span class="skill-cat-name">
+        <a href="/">{{ .name }}</a>
+      </span>
+      <span class="skill-stars-slot">
+        {{ partial "skill-stars.html" (dict "stars" .stars) }}
+      </span>
+    </div>
+
+    {{ if $hasSubskills }}
       <div class="skill-subskills">
         {{ range $subskills }}
-          <div class="skill-subskill">
-            <span class="sub-name">
-              {{ if .slug }}
-                {{ $link := .url | default (printf "/skills/%s/" .slug) }}
-                <a href="{{ $link }}">{{ .name }}</a>
-              {{ else }}
-                {{ .name }}
-              {{ end }}
-            </span>
-            <div class="progress-bar-sm"><div class="progress-fill-sm" style="width:{{ .level }}%"></div></div>
-            <span class="sub-pct">{{ .level }}%</span>
+          <div class="skill-item">
+            <div class="skill-item-head">
+              <span class="skill-item-name">
+                <a href="/">{{ .name }}</a>
+              </span>
+              <span class="skill-status status-{{ .status | default "empty" }}">
+                {{ if eq .status "done" }}
+                  {{/* zielony ptaszek - wykonane */}}
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="status-icon"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                {{ else if eq .status "progress" }}
+                  {{/* jaśniejszy ptaszek z podkreśleniem - w trakcie / analizowane / uczone */}}
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="status-icon"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                {{ else }}
+                  {{/* szary pusty - nie wykonane */}}
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="status-icon status-icon-box"><rect x="4" y="4" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+                {{ end }}
+              </span>
+            </div>
+            <div class="skill-item-desc">
+              <p>{{ .desc }}</p>
+            </div>
           </div>
         {{ end }}
       </div>
-    </div>
-  {{ else }}
-    {{/* Kategoria bez subskills - prosty pasek */}}
-    <div class="skill-simple">
-      <span class="skill-name">
-        {{ if .slug }}
-          {{ $link := .url | default (printf "/skills/%s/" .slug) }}
-          <a href="{{ $link }}">{{ .name }}</a>
-        {{ else }}
-          {{ .name }}
-        {{ end }}
-      </span>
-      <div class="progress-bar">
-        <div class="progress-fill" style="width:{{ .level }}%"></div>
-      </div>
-      <span class="skill-pct">{{ .level }}%</span>
-    </div>
-  {{ end }}
+    {{ end }}
+  </div>
 {{ end }}

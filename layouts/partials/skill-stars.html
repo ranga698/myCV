@@ -1,0 +1,19 @@
+{{/* Renderuje 5 gwiazdek, .stars = wartość (np. 3.5) */}}
+{{ $stars := float .stars | default 0 }}
+
+<span class="stars" aria-label="{{ $stars }} / 5">
+  {{ range $i := seq 0 4 }}
+    {{ $fill := sub $stars $i }}
+    {{ if gt $fill 1 }}{{ $fill = 1 }}{{ end }}
+    {{ if lt $fill 0 }}{{ $fill = 0 }}{{ end }}
+    {{ $pct := mul $fill 100 }}
+    <span class="star">
+      <svg class="star-base" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      {{ if gt $pct 0 }}
+        <span class="star-fill" style="width:{{ $pct }}%">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </span>
+      {{ end }}
+    </span>
+  {{ end }}
+</span>

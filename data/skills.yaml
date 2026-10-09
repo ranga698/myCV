@@ -1,107 +1,19 @@
 categories:
-  - name: Sieci
-    icon: network
+  - name: OT
+    stars: 3.5
     subskills:
-      - name: model OSI/ISO
-        level: 100
-        slug: model-osi-iso
-      - name: WildCard Mask
-        level: 90
-        slug: wildcard-mask
-      - name: VLAN, Native-VLAN
-        level: 100
-        slug: vlan
-      - name: ROTS, inter-VLAN via SVI
-        level: 100
-        slug: rots-inter-vlan
-      - name: subnet
-        level: 100
-        slug: subnet
-      - name: STP, RSTP
-        level: 90
-        slug: stp-rstp
-      - name: DTP, VTP
-        level: 75
-        slug: dtp-vtp
-      - name: EtherChannel
-        level: 60
-        slug: etherchannel
-      - name: budowa ramki L2 i L3
-        level: 40
-        slug: budowa-ramki
-      - name: QoS
-        level: 10
-        slug: qos
-      - name: RIP, EIGRP
-        level: 10
-        slug: rip-eigrp
-      - name: Routing
-        level: 10
-        slug: routing
-      - name: OSPF
-        level: 0
-        slug: ospf
-      - name: IPv6
-        level: 0
-        slug: ipv6
+      - name: Maska
+        status: done
+        desc: "Znajomosc maski, umiejetnosc obliczniaa, wiem po co jest , gdzie sie stousje, z jakiego powodu, umiem to szybki liczyc, rozmem RCDI, FDSa,DSA"
 
-  - name: Firewall - Opnsense
-    icon: shield
-    subskills:
-      - name: unbound
-        level: 70
-        slug: unbound
-      - name: firewall reguły
-        level: 15
-        slug: firewall-reguly
-      - name: DoT, DoT, DNS
-        level: 70
-        slug: dot-dns
+  - name: IT
+    stars: 4
+    subskills: []
 
-  - name: proxmox
-    icon: server
-    subskills:
-      - name: ZFS
-        level: 80
-        slug: zfs
-      - name: L2ARC, ARC
-        level: 80
-        slug: l2arc-arc
+  - name: Automatyka
+    stars: 3.5
+    subskills: []
 
-  - name: wizualizacja
-    icon: desktop
-    subskills:
-      - name: Hyper-V
-        level: 40
-        slug: hyper-v
-      - name: docker
-        level: 40
-        slug: docker
-
-  - name: linux
-    icon: terminal
-    subskills:
-      - name: ssh
-        level: 80
-        slug: ssh
-      - name: SCP
-        level: 80
-        slug: scp
-
-  - name: automatyzacja, monitoring
-    icon: zap
-    subskills:
-      - name: N8N
-        level: 60
-        slug: n8n
-      - name: checkmk
-        level: 50
-        slug: checkmk
-
-  - name: self-host
-    icon: home
-    subskills:
-      - name: lightRAG
-        level: 100
-        slug: lightrag
-        url: /posts/lightrag/
+  - name: HomeLab
+    stars: 4
+    subskills: []
