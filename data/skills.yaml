@@ -26,12 +26,21 @@ categories:
 
   - name: IT
     stars: 4
-    subskills: []
+    subskills:
+      - name: Lorem Ipsum
+        status: progress
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 
   - name: Automatyka
     stars: 3.5
-    subskills: []
+    subskills:
+      - name: Lorem Ipsum
+        status: done
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 
   - name: HomeLab
     stars: 4
-    subskills: []
+    subskills:
+      - name: Lorem Ipsum
+        status: empty
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
