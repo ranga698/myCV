@@ -9,9 +9,7 @@
       {{ if $hasSubskills }}
         <span class="chevron">▶</span>
       {{ end }}
-      <span class="skill-cat-name">
-        <a href="/">{{ .name }}</a>
-      </span>
+      <span class="skill-cat-name">{{ .name }}</span>
       <span class="skill-stars-slot">
         {{ partial "skill-stars.html" (dict "stars" .stars) }}
       </span>
