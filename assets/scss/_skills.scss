@@ -171,18 +171,9 @@
   display: none;
 }
 
-.skill-item-name {
+.skill-item-name-text {
   flex: 1;
-
-  a {
-    color: $text-primary;
-    text-decoration: none;
-    transition: color 0.15s;
-
-    &:hover {
-      color: $primary;
-    }
-  }
+  color: $text-primary;
 }
 
 // ===== STATUS (wykonane / w trakcie / puste) =====
