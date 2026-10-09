@@ -5,6 +5,24 @@ categories:
       - name: Maska
         status: done
         desc: "Znajomosc maski, umiejetnosc obliczniaa, wiem po co jest , gdzie sie stousje, z jakiego powodu, umiem to szybki liczyc, rozmem RCDI, FDSa,DSA"
+      - name: Wildcard Mask
+        status: progress
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      - name: VLAN
+        status: done
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      - name: STP/RSTP
+        status: progress
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      - name: ISO/OSI
+        status: done
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      - name: Budowa L2/L3
+        status: progress
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      - name: QoS
+        status: empty
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 
   - name: IT
     stars: 4
