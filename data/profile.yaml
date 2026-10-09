@@ -5,11 +5,24 @@ phone: "+48 698 407 xxx"
 location: "Poznań, Polska"
 avatar: "/images/avatar.webp"
 summary: |
-  Jestem inżynierem aplikacyjnym w branży automatyki przemysłowej, realizuję projekty na sprzęcie firmy Rockwell Automation. Mój zakres obowiązków obejmuje programowanie sterowników PLC i systemów DCS (PlantPAx 4 i 5), tworzenie wizualizacji SCADA, rozwój oprogramowania w C# (FactoryTalk Optix) oraz zarządzanie danymi procesowymi z wykorzystaniem baz danych: MSSQL, InfluxDB, MariaDB, Grafana, VictoriaMetrics i OSIsoft PI Historian. Konfiguruję infrastrukturę sieciową opartą na sprzęcie Cisco (Stratix) oraz środowiska wirtualizacyjne na Proxmox i Hyper-V (Dell i Stratus). Specjalizuję się w analizie i integracji protokołów przemysłowych: OPC UA, MQTT oraz Ethernet/IP.
+  Pracuję na styku OT i IT: od EtherNet/IP i OPC UA, przez projektowanie i segmentację sieci, po bezpieczeństwo OT w standardzie CPwE z wykorzystaniem CIP Security.
+  Realizuję to na sprzęcie Stratix-Cisco.
 
-  Zajmuję się wsparciem klientów – zarówno w rozwiązywaniu problemów bieżących, jak i na etapie przygotowania, realizacji oraz po zakończeniu projektów. Dodatkowo prowadzę szkolenia oraz ściśle współpracuję z działem handlowym i zespołem developerskim.
+  SCADA, DCS, PLC to moja codzienność: projektuję i wdrażam systemy automatyki w oparciu o pełny ekosystem Rockwell Automation - od sterowników (Studio 5000), przez SCADA (FactoryTalk View SE & FactoryTalk Optix), po systemy DCS (PlantPAx 4 & 5).
 
-  Po godzinach realizuję autorski projekt w którym rozwijam swój HomeLab i intensywnie rozwijam umiejętności sieciowe na poziomie CCNA
+  Całość spinam bazami danych (MSSQL, VictoriaMetrics, OSIsoft PI Historian) i raportowanie (InfluxDB, Grafana, PI Vision)
+
+  Pracuje z ludźmi: wspieram technicznie klientów - pomagam w projektowaniu, wdrożeniach oraz rozwiązuje i diagnozuję problemy w dużych systemach.
+
+  Realizuję wsparcie w zakresie wirtualizacji (Proxmox & hyper-V) i uruchamiam komponenty w duchu Industrial DevOps kładąc duży nacisk na automatyzację (Application Code Manager, Studio SDK, Agenci AI).
+
+  Po godzinach utrzymuję własne środowisko Homelab - dwa serwery Proxmox na którym testuję nowe rozwiązania aby ciągle się rozwijać. Dzięki temu rozwijam się w tematach dodatkowych: checkmk, OPNsense (firewall) czy Cisco Modeling Lab/Containerlab. To tylko kilka elementów bo lista cały czas się powiększa.
+
+  Wszystko to spinam rozwojem w kierunku AI - RAG i testowanie nowych modeli po API. Korzystam zarówno z promptowania (Open WebUI) oraz agentów AI (pi.dev).
+
+  Uczestniczę w projekcie Fabryki 4.0, gdzie wspieram zespół swoją wiedzą techniczną, utrzymuje infrastrukturę i rozwijam koncepcję.
+
+  Pracuję w duchu Shane Parrish: modele mentalne i myślenie systemowe, zamiast sztywnych szablonów. Dzięki temu podejściu umiem poradzić sobie będąc rzuconym na głęboką wodę. Wszystko organizuje w swoją bazę danych, do której wykorzystuje Obsidian.
 social:
   - name: LinkedIn
     url: "https://pl.linkedin.com/in/jan-babkiewicz-b549a91b2"

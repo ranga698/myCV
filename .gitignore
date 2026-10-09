@@ -3,6 +3,10 @@
 /resources/_gen/
 /hugo_stats.json
 .hugo_build.lock
+
+# Materialy robocze (KONTEKST)
+/KONTEKST/
+/NOTE.md
 /resources/
 
 # OS

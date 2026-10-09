@@ -1,5 +1,14 @@
 # CV Website – Hugo Static Site
 
+## Folder KONTEKST
+Katalog `KONTEKST/` w głównym katalogu projektu służy do wrzucania materiałów
+od użytkownika (opisy, teksty, referencje), które agent ma przetworzyć na treści
+strony. Zasady:
+- Nazwa pliku wskazuje przeznaczenie, np. `O_MNIE.md` = treść sekcji "Kim jestem".
+- Treść z KONTEKST przenosimy do właściwego miejsca (data/*.yaml, content/posts, content/skills) i tam ją utrzymujemy.
+- Po przeniesieniu treści nie usuwać pliku z KONTEKST bez zgody użytkownika – to repozytorium materiałów użytkownika.
+- Nie commitować KONTEKST do repo strony (materiały robocze, nie treść strony) – wpis w .gitignore.
+
 ## Project overview
 Osobista strona-wizytówka pełniąca rolę CV online, zbudowana w **Hugo** (static site generator).
 Strona ma być maksymalnie lekka: HTML + CSS + absolutne minimum JS.
