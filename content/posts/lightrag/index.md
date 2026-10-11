@@ -11,7 +11,7 @@ draft = false
 
 ## TL;DR
 
-Uczę się z książek technicznych, które AI zna „na wylot": postawiłem na home labie **LightRAG (GraphRAG)** z dodatkiem **RAG-Everything** i wgrałem do niego ~1200 stron dokumentacji Cisco oraz ~300 plików dokumentacji PI Historian. Rozmowy prowadzę przez API (DeepSeek v4 Pro) – model odpowiada z książki, w 98% wyciąga wiedzę z niej samej i nie halucynuje. Koszt przerobienia 1200 stron książki Cisco: **7 dolarów**.
+Chciałem dać AI pełny dostęp do wiedzy z książek, które dostarczę. Potrzebowałem tego do nauki i pomocy przy analizie dokumentacji technicznych. Wybrałem **LightRAG** z dodatkiem **RAG-Everything**, a jako LLM – **DeepSeek v4** przez API. Efekt bardzo zadowalający, koszt to **7 dolarów za 1200 stron**. Korzystałem z tego przez długi czas – do momentu, w którym wszedłem w agentów AI.
 
 ## CEL
 
