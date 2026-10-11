@@ -33,4 +33,61 @@
     color: #fff;
     font-weight: 600;
   }
+
+  // s w postaci linku <a> - usuniecie domyslnego stylowania
+  text-decoration: none;
+  display: block;
+}
+
+// Hashtagi na kartach projektow
+.entry-hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.entry-hashtag {
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: $bg-page;
+  color: $primary;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba($primary, 0.12);
+  }
+
+  &.active {
+    background: $primary;
+    color: #fff;
+  }
+}
+
+// Notka o aktywnym hashtagu
+.tag-note {
+  font-size: 0.85rem;
+  color: $text-secondary;
+  margin: 0 0 16px;
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    margin-left: 6px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.empty-note {
+  font-size: 0.9rem;
+  color: $text-muted;
+  text-align: center;
+  padding: 24px 0;
 }

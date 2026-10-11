@@ -6,7 +6,7 @@
     {{ if .Params.tags }}
       <div class="tags">
         {{ range .Params.tags }}
-          <span class="tag">{{ . }}</span>
+          <a class="tag tag-link" href="/posts/?tag={{ . }}">#{{ . }}</a>
         {{ end }}
       </div>
     {{ end }}

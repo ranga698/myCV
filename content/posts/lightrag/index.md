@@ -2,8 +2,10 @@
 title = "LightRAG"
 date = 2026-07-27
 type = "post"
+category = "Selfhost"
 description = "Kiedy potrzebujesz nauczyciela, ale chcesz dać mu książkę, o której chcesz z nim porozmawiać."
-tags = ["self-host", "rag", "ai", "lightrag", "graphrag"]
+tags = ["AI", "Selfhost"]
+rank = 40
 draft = false
 +++
 

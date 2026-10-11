@@ -2,8 +2,10 @@
 title = "{{ replace .Name "-" " " | title }}"
 date = {{ .Date }}
 type = "post"
-description = "Opis artykułu (max 160 znaków)"
+category = "Selfhost"
+description = "Opis projektu (max 160 znaków)"
 tags = []
+rank = 0
 draft = true
 +++
 

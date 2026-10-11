@@ -6,13 +6,22 @@
   {{ partial "filter-bar.html" . }}
 
   <div class="entries-list" id="entries-list">
-    {{ range .Pages }}
-      <article class="entry-card" data-type="{{ .Type }}">
+    {{ range sort .Pages "Params.rank" "desc" }}
+      <article class="entry-card"
+               data-category="{{ .Params.category | default "all" }}"
+               data-tags="{{ delimit .Params.tags "|" }}">
         <div class="entry-type {{ if eq .Type "skill" }}skill-type{{ else }}post-type{{ end }}">
           {{ if eq .Type "skill" }}🔧 Umiejętność{{ else }}📝 Artykuł{{ end }}
         </div>
         <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
         <div class="entry-date">{{ partial "date-pl.html" . }}</div>
+        {{ if .Params.tags }}
+          <div class="entry-hashtags">
+            {{ range .Params.tags }}
+              <a class="entry-hashtag" data-tag="{{ . }}" href="#">#{{ . }}</a>
+            {{ end }}
+          </div>
+        {{ end }}
         <p class="entry-excerpt">{{ .Description | default .Summary | truncate 200 }}</p>
       </article>
     {{ end }}
@@ -22,15 +31,94 @@
 
 {{ define "scripts" }}
 <script>
-document.querySelectorAll('.filter-btn').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
-    this.classList.add('active');
-    var filter = this.dataset.filter;
-    document.querySelectorAll('.entry-card').forEach(function(card) {
-      card.style.display = (filter === 'all' || card.dataset.type === filter) ? '' : 'none';
+(function(){
+  var cards = document.querySelectorAll('#entries-list .entry-card');
+  var catBtns = document.querySelectorAll('.filter-bar .cat-btn');
+  var currentTag = null;
+  var currentCategory = 'all';
+
+  function applyFilter(){
+    var visible = 0;
+    cards.forEach(function(card){
+      var cat = card.dataset.category;
+      var tags = card.dataset.tags.split('|');
+      var show = true;
+      if (currentTag) {
+        show = tags.indexOf(currentTag) !== -1;
+      } else if (currentCategory !== 'all') {
+        show = (cat === currentCategory);
+      }
+      if (show) { card.style.display = ''; visible++; } else { card.style.display = 'none'; }
+    });
+    document.querySelectorAll('.entry-hashtag').forEach(function(h){
+      h.classList.toggle('active', h.dataset.tag === currentTag);
+    });
+    catBtns.forEach(function(b){
+      b.classList.toggle('active', !currentTag && b.dataset.category === currentCategory);
+    });
+    var note = document.getElementById('tag-note');
+    if (note) { note.remove(); }
+    if (currentTag) {
+      var bar = document.querySelector('.filter-bar');
+      if (bar) {
+        note = document.createElement('div');
+        note.id = 'tag-note';
+        note.className = 'tag-note';
+        note.innerHTML = 'Artykuły z #<b>' + currentTag + '</b> <a href="#" id="tag-clear">✕</a>';
+        bar.insertAdjacentElement('afterend', note);
+        var clear = document.getElementById('tag-clear');
+        clear.addEventListener('click', function(e){ e.preventDefault(); setTag(null); });
+      }
+    }
+    var list = document.getElementById('entries-list');
+    if (list && visible === 0) {
+      var empty = document.getElementById('empty-note');
+      if (!empty) {
+        empty = document.createElement('p');
+        empty.id = 'empty-note';
+        empty.className = 'empty-note';
+        empty.textContent = 'Brak artykułów w tym filtrze.';
+        list.insertAdjacentElement('beforebegin', empty);
+      }
+    } else {
+      var empty = document.getElementById('empty-note');
+      if (empty) { empty.remove(); }
+    }
+  }
+
+  function setTag(tag){
+    currentTag = tag;
+    if (currentTag && window.history.replaceState) {
+      window.history.replaceState(null, '', '/posts/?tag=' + encodeURIComponent(tag));
+    } else if (window.history.replaceState) {
+      window.history.replaceState(null, '', '/posts/');
+    }
+    applyFilter();
+  }
+
+  catBtns.forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      currentCategory = btn.dataset.category;
+      currentTag = null;
+      if (window.history.replaceState) { window.history.replaceState(null, '', '/posts/'); }
+      applyFilter();
     });
   });
-});
+
+  document.querySelectorAll('#entries-list .entry-hashtag').forEach(function(h){
+    h.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      setTag(h.dataset.tag);
+    });
+  });
+
+  // obsluga ?tag= z URL (klik w hashtag w pojedynczym artykule)
+  var params = new URLSearchParams(window.location.search);
+  initialTag = params.get('tag');
+  if (initialTag) { currentTag = initialTag; }
+  applyFilter();
+})();
 </script>
 {{ end }}

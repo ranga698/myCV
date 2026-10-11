@@ -87,6 +87,17 @@
       color: $text-secondary;
       border-radius: 12px;
     }
+
+    .tag-link {
+      color: $primary;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+
+      &:hover {
+        background: rgba($primary, 0.12);
+      }
+    }
   }
 
   .content {
