@@ -42,9 +42,11 @@
                 {{ end }}
               </span>
             </div>
-            <div class="skill-item-desc">
-              <p>{{ .desc }}</p>
-            </div>
+            {{ if .desc }}
+              <div class="skill-item-desc">
+                <p>{{ .desc }}</p>
+              </div>
+            {{ end }}
           </div>
         {{ end }}
       </div>

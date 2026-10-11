@@ -10,33 +10,121 @@ categories:
         desc: "Umiejętność liczenia wildcard, wiem gdzie stosować (np. OSPF)."
       - name: VLAN
         status: done
-        desc: "Powód stosowania VLAN, konfiguracja access port, trunk port, native-VLAN, Router-On-The-Stick, Inter-VLAN via SVI, podział na grupy VLAN - maska + IP, routing L3, switch L3 vs router L3"
+        desc: "Umiejętność konfiguracji VLAN, wiem po co ją stosować: access i trunk port, native-VLAN, Router-on-a-Stick, Inter-VLAN via SVI, podział na grupy VLAN (maska + IP), routing - switch L3 vs router L3"
       - name: STP/RSTP
-        status: progress
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      - name: ISO/OSI
         status: done
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      - name: Budowa L2/L3
+        desc: "Różnice między wersjami STP, BPDU Guard, Root Guard, Loop Guard, BPDU Filter, Port Fast, Load Balance, obliczanie STP"
+      - name: Routing
+        status: done
+        desc: "Static routing i dynamic routing, słownictwo"
+      - name: Wireshark
         status: progress
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      - name: QoS
-        status: empty
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        desc: "Jestem w trakcie nauki obsługi Wireshark oraz wykorzystania do analizy na przykładzie: Ethernet/IP, DLR, TCP/IP, ruchu sieciowego w domu, firmie, STP"
+      - name: CPwE
+        status: done
+        desc: "Rozumiem zastosowanie tego standardu, umiem z niego korzystać i przedstawić klientom, rozumiem po co jest"
+      - name: Architecture network
+        status: progress
+        desc: "Rozumiem Campus network i jestem w trakcie doszlifowywania umiejętności projektowania sieci na poziomie OT i IT"
+      - name: DTP i VTP
+        status: done
+        desc: "Umiem to skonfigurować, rozumiem dlaczego nie jest zalecane stosowanie ze względu na bezpieczeństwo"
+      - name: EtherChannel
+        status: done
+        desc: "Rozumiem zastosowanie (agregacja), PAgP, LACP, Static EtherChannel"
+      - name: model OSI/ISO
+        status: done
+        desc: "Rozumiem OSI/ISO, budowę L2, L3, L4"
+      - name: NAT
+        status: progress
+        desc: "Jestem na etapie nauki teoretycznej, mam za sobą praktyczne wdrożenie rozwiązania"
+      - name: OSPF
+        status: progress
+        desc: "Jestem w trakcie nauki, mam za sobą pierwsze konfiguracje"
+      - name: RIP & EIGRP
+        status: done
+        desc: "Różnice między protokołami, zastosowanie i konfiguracja, słownictwo"
+      - name: Inne
+        status: progress
+        desc: "ARP, IGMP snooping, Two-Way reachability, T568A/B, cable rollover, over-subscription, CAT (3-7), encapsulation i decapsulation, model OSI/ISO"
+      - name: Firewall
+        status: progress
+        desc: "Konfiguracja OPNsense, pracuję nad umiejętnościami pełnej konfiguracji"
 
   - name: IT
     stars: 4
     subskills:
-      - name: Lorem Ipsum
+      - name: C#
         status: progress
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        desc: "Pisanie kodu C# pod platformę FT Optix, pisanie wykresów w C# pod SCADA (WPF), skrypty automatyzacji pod PLC (SDK Studio 5000)"
+      - name: Windows Server
+        status: progress
+        desc: "Analiza logów, deploy na serwerze (Hyper-V), konfiguracja, analiza obciążeń, nieprawidłowości działania systemu"
+      - name: Git
+        status: progress
+        desc: "W trakcie nauki"
+      - name: Linux
+        status: progress
+        desc: "Fedora, Ubuntu, Debian - w trakcie nauki"
+      - name: Server
+        status: progress
+        desc: "Umiejętność konfiguracji serwera (Dell, Stratus), instalacja i konfiguracja: Hyper-V & Proxmox, wdrożenia, komponenty, analiza systemów"
+      - name: Python
+        status: progress
+        desc: "Kiedyś bardzo dobra znajomość, teraz: w trakcie odświeżania wiedzy"
+      - name: Prompt & Agent AI
+        status: done
+        desc: "Regularne korzystanie z Open WebUI oraz pi.dev z wieloma różnymi modelami LLM, RAG"
+      - name: Bazy danych
+        status: done
+        desc: "Znajomość: MSSQL, MariaDB, InfluxDB, VictoriaMetrics, Prometheus, Grafana, OSIsoft PI Historian"
+      - name: VBA & Excel
+        status: done
+        desc: "Świetna znajomość Excela wraz z wysoką umiejętnością pisania skryptów, automatyzacja"
+      - name: Monitoring OT
+        status: progress
+        desc: "checkmk, Zabbix, Grafana"
+      - name: Home Assistant
+        status: done
+        desc: "Znajomość IoT oraz IIoT, wdrożenia inteligentnych rozwiązań na poziomie konsumenckim (dom) oraz przemysłu"
 
   - name: Automatyka
     stars: 3.5
     subskills:
-      - name: Lorem Ipsum
+      - name: PLC
         status: done
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      - name: Allen-Bradley
+        status: done
+      - name: Studio 5000
+        status: done
+      - name: ControlEdge Honeywell
+        status: done
+      - name: SCADA
+        status: done
+      - name: FactoryTalk View SE
+        status: done
+      - name: FactoryTalk Optix
+        status: done
+      - name: Experion PKS
+        status: done
+      - name: DCS
+        status: done
+      - name: PlantPAx 5 Rockwell Automation
+        status: done
+      - name: C300 Honeywell
+        status: done
+      - name: EtherNet/IP
+        status: done
+      - name: CIP Security
+        status: done
+      - name: Industrial DevOps
+        status: done
+      - name: Application Code Manager (ACM)
+        status: done
+      - name: P&ID
+        status: done
+      - name: PID
+        status: done
 
   - name: HomeLab
     stars: 4
