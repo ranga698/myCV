@@ -57,4 +57,3 @@ Dla mnie jest to wyższy poziom wiedzy, który jeszcze niedawno był nie do pomy
 - **Przy zadawaniu pytań warto używać słów kluczowych** – model lepiej rozumie zależności. Mniej ogólnych opisów, więcej konkretnych terminów.
 - **Bazy wektorowe:** świetny artykuł, który wyjaśnił mi wektory na prostym przykładzie: [Podobieństwo wektorów](https://swistak.codes/post/podobienstwo-wektorow/) (swistak.codes – linkowany wyżej przy RAG).
 - **Polecam do nauki książek mocno technicznych i bardzo szczegółowych** – oraz książek rozwijających kompetencje zarządcze. Można wtedy omówić własny przykład życiowy i bardzo szybko uzyskać indywidualną interpretację dla siebie.
-- **LightRAG (GraphRAG) jest tym, czego potrzebuję.** RAG, MCP, agenci AI – nie spełniają moich oczekiwań. GraphRAG – tak.
