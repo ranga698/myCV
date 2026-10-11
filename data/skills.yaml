@@ -129,6 +129,6 @@ categories:
   - name: HomeLab
     stars: 4
     subskills:
-      - name: Lorem Ipsum
-        status: empty
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      - name: ERP
+        status: progress
+        desc: "Wprowadziłem ERP na potrzeby sklepu [kaskastudio.pl](https://kaskastudio.pl/), który hostuję u siebie na serwerze – po testach wielu producentów wybrałem Dolibarr"

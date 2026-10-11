@@ -44,7 +44,7 @@
             </div>
             {{ if .desc }}
               <div class="skill-item-desc">
-                <p>{{ .desc }}</p>
+                {{ .desc | markdownify }}
               </div>
             {{ end }}
           </div>
