@@ -28,6 +28,9 @@ social:
   - name: LinkedIn
     url: "https://pl.linkedin.com/in/jan-babkiewicz-b549a91b2"
     icon: linkedin
+  - name: E-mail
+    url: "mailto:babkiewiczjan@gmail.com"
+    icon: email
   - name: WhatsApp
     url: "https://wa.me/698407670"
     icon: whatsapp
