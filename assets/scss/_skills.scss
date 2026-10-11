@@ -160,8 +160,26 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
+  gap: 5px;
   flex-shrink: 0;
+}
+
+.status-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-done .status-label {
+  color: #2e9e5b;
+}
+
+.status-progress .status-label {
+  color: #8fd6ac;
+}
+
+.status-empty .status-label {
+  color: #c9c9c9;
 }
 
 .skill-status .status-icon {
