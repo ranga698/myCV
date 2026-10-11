@@ -30,7 +30,7 @@ Szukałem rozwiązania czterech problemów:
 
 Pierwszy krok: jedno miejsce z dostępem do wszystkich LLM, bez przepinania kart między dostawcami. Rozwiązał to w 100% **OpenRouter**. Ważna funkcja: lista LLM z informacją o popularności w danym temacie – szybko oceniam, czy dany model ma sens, filtrując np. po Learn. Dzięki temu mocno zwiększyłem rotację modeli i dużo częściej korzystam z LLM.
 
-Na dodatek śledzę wydatki i wyszukuję modele znacząco tańsze od wiodących dostawców – tak nie zderzam się z limitami czasowymi przy zachowaniu niskich kosztów.
+Na dodatek śledzę wydatki i wyszukuję modele znacząco tańsze od wiodących dostawców – nie zderzam się z limitami czasowymi przy zachowaniu niskich kosztów.
 
 Efektem ubocznym była nauka większej rozważności w wydawaniu tokenów: nauczyłem się myśleć i planować rozmowę z LLM, co w przypadku subskrypcji określam jako niemożliwe.
 
