@@ -72,7 +72,7 @@ Nagle skończyły się problemy z kłótnią kto ma rację, bo AI ma dostęp do 
 
 ### RAG
 
-Funkcja, z której – przyznaję – obecnie, w dobie LightRAG i agentów AI, korzystam praktycznie wcale. Mimo to o niej wspominam, bo dała mi bardzo fajny wstęp do RAG, który określam jako ważną lekcję. Krótko mówiąc: baza danych dla LLM – wrzucam swoje notatki albo dokumentację i chat ma dostęp do dodatkowej wiedzy, szybko i tanio. Ciekawostka: podawanie tekstu jest na tyle lekkie, że można skorzystać z lokalnego LLM bez karty graficznej. Czym jest RAG – odsyłam do mojego artykułu o [LightRAG](/posts/lightrag/), gdzie omawiam wektorową podstawę działania.
+Funkcja, z której – przyznaję – obecnie, w dobie LightRAG i agentów AI, nie korzystam praktycznie wcale. Mimo to o niej wspominam, bo dała mi bardzo fajny wstęp do RAG, który określam jako ważną lekcję. Krótko mówiąc: baza danych dla LLM – wrzucam swoje notatki albo dokumentację i chat ma dostęp do dodatkowej wiedzy, szybko i tanio. Ciekawostka: podawanie tekstu jest na tyle lekkie, że można skorzystać z lokalnego LLM bez karty graficznej. Czym jest RAG – odsyłam do mojego artykułu o [LightRAG](/posts/lightrag/), gdzie omawiam wektorową podstawę działania.
 
 ### Terminal, czyli jak z chatu zrobić agenta
 
