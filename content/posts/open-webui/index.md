@@ -15,7 +15,7 @@ Zrezygnowałem z subskrypcji na rzecz API – **OpenRouter** jako jedna platform
 
 ## CEL
 
-Wszystko kręciło się wokół subskrypcji: jeden dostawca, jeden interfejs, miesięczny cykl rozliczenia niezależny od zużycia tokenów – przy zamknięciu się na jeden model LLM, bez możliwości testowania innych. Skakanie między platformami było czasochłonne i mało efektywne, a każdy kolejny interfejs to kolejna warstwa trudności w postaci trzymania promptów i materiałów na zewnątrz. Do tego dochodziło to, że część dostawców w ogóle nie ma własnej strony do promptowania – udostępniają tylko API – więc duża część LLM była dla mnie niedostępna.
+Wszystko kręciło się wokół subskrypcji: jeden dostawca, jeden interfejs, miesięczny cykl rozliczenia niezależny od zużycia tokenów – przy zamknięciu się na jeden model LLM, bez możliwości testowania innych. Skakanie między platformami było czasochłonne i mało efektywne, a każdy kolejny interfejs to kolejna warstwa trudności w postaci trzymania promptów i materiałów na zewnątrz. Do tego dochodziło, że część dostawców w ogóle nie ma własnej strony do promptowania – udostępniają tylko API – więc duża część LLM była dla mnie niedostępna.
 
 Szukałem rozwiązania czterech problemów:
 
