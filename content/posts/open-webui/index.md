@@ -11,7 +11,7 @@ draft = false
 
 ## TL;DR
 
-Zrezygnowałem z subskrypcji na rzecz API – **OpenRouter** jako API do modeli – i postawiłem własne środowisko do promptowania: **Open WebUI** na LXC (Proxmox). Jedno miejsce dla wszystkich LLM i funkcje, których webowe platformy nie dają: kolejkowanie promptów, notatki, archiwum rozmów, dostęp do internetu (SearXNG + Firecrawl), RAG, sandbox terminalowy i YouTube API. Efekt: pełna kontrola, wyraźny wzrost efektywności pracy z modelami oraz obniżenie kosztów o 71%.
+Zrezygnowałem z subskrypcji na rzecz API – **OpenRouter** jako jedna platforma do modeli – i postawiłem własne środowisko do promptowania: **Open WebUI** na LXC (Proxmox). Jedno miejsce dla wszystkich LLM i funkcje, których webowe platformy nie dają: kolejkowanie promptów, notatki, archiwum rozmów, dostęp do internetu (SearXNG + Firecrawl), RAG, sandbox terminalowy i YouTube API. Efekt: pełna kontrola, wyraźny wzrost efektywności pracy z modelami oraz obniżenie kosztów o 71%.
 
 ## CEL
 
