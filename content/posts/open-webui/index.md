@@ -40,7 +40,7 @@ Platforma OpenRouter od razu mnie nie przekonała, z jednego prostego powodu: br
 
 Ale bilans wypadł jasno: jak tylko rozwiążę problem z brakiem GUI, zyski z API przewyższają to, co dała jakakolwiek gotowa platforma.
 
-Padło na **Open WebUI**. Dwa powody: self-host i bardzo dobrze rozpisany roadmap rozwoju projektu – na etapie wersji 0.7 tyle mnie zainteresował i przekonał, że postanowiłem zaryzykować. Jak się okazało, rozwój tej platformy jest tak potężny, że przy każdej aktualizacji pojawia się coś nowego, wartego uwagi.
+Padło na **Open WebUI**. Dwa powody: self-host i bardzo dobrze rozpisany roadmap rozwoju projektu – wersja 0.7 na tyle mnie zainteresowała i przekonała, że postanowiłem zaryzykować. Jak się okazało, rozwój tej platformy jest tak potężny, że przy każdej aktualizacji pojawia się coś nowego, wartego uwagi.
 
 ### Kolejkowanie promptów
 
