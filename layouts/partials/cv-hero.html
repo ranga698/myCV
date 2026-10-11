@@ -29,6 +29,20 @@
     {{ if $profile.email }}
       <p class="contact-item">✉️ <a href="mailto:{{ $profile.email }}">{{ $profile.email }}</a></p>
     {{ end }}
+    {{ if $profile.languages }}
+      {{ $langs := slice }}
+      {{ range $profile.languages }}
+        {{ $langs = $langs | append (printf "%s (%s)" .name .level) }}
+      {{ end }}
+      <p class="cv-languages">🗣️ {{ delimit $langs " · " }}</p>
+    {{ end }}
+  </div>
+
+  {{ $cvPdf := fileExists "static/files/cv-jan-babkiewicz.pdf" }}
+  {{ $projPdf := fileExists "static/files/projekty.pdf" }}
+  <div class="cv-downloads">
+    <a class="cv-btn" href="{{ if $cvPdf }}/files/cv-jan-babkiewicz.pdf{{ else }}#{{ end }}">Pobierz CV{{ if not $cvPdf }} (In progress){{ end }}</a>
+    <a class="cv-btn" href="{{ if $projPdf }}/files/projekty.pdf{{ else }}#{{ end }}">Pobierz moje projekty{{ if not $projPdf }} (In progress){{ end }}</a>
   </div>
 
   <div class="social-icons">

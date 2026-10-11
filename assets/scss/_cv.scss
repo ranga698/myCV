@@ -109,6 +109,37 @@
   }
 }
 
+// ===== JĘZYKI + PDF =====
+.cv-languages {
+  font-size: 0.82rem;
+  color: $text-secondary;
+  margin-bottom: 12px;
+}
+
+.cv-downloads {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+
+  .cv-btn {
+    display: block;
+    background: $primary;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background 0.2s;
+
+    &:hover {
+      background: $primary-hover;
+    }
+  }
+}
+
 // ===== PRAWA KOLUMNA =====
 .cv-main {
   padding: 32px 32px 32px 8px;
