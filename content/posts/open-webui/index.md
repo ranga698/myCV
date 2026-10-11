@@ -38,7 +38,7 @@ Efektem ubocznym była nauka większej rozważności w wydawaniu tokenów: naucz
 
 Platforma OpenRouter od razu mnie nie przekonała, z jednego prostego powodu: brak sensownego GUI. Po co mam zamieniać wygodny interfejs od takiego Claude na rzecz... tego czegoś?
 
-Ale bilans wypadł jasno: jak tylko rozwiążę problem z brakiem GUI, zyski z API przewyższają to, co dała jakakolwiek gotowa platforma.
+Ale bilans wypadł jasno: jak tylko rozwiążę problem z brakiem GUI, zyski z API przewyższają to, co daje jakakolwiek gotowa platforma.
 
 Padło na **Open WebUI**. Dwa powody: self-host i bardzo dobrze rozpisany roadmap rozwoju projektu – wersja 0.7 na tyle mnie zainteresowała i przekonała, że postanowiłem zaryzykować. Jak się okazało, rozwój tej platformy jest tak potężny, że przy każdej aktualizacji pojawia się coś nowego, wartego uwagi.
 
