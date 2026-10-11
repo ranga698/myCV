@@ -44,7 +44,7 @@ Padło na **Open WebUI**. Dwa powody: self-host i bardzo dobrze rozpisany roadma
 
 ### Kolejkowanie promptów
 
-Zabawne jest to, że kiedy opowiadam ludziom, pierwszą reakcją jest lekki uśmieszek w stylu „głupie głupoty". Wcale się nie dziwię, bo brzmi to absurdalnie. Jaki wyróżnik? Kiedy AI mi odpowiada, mogę w kolejce wysłać kolejne zapytanie – zostanie automatycznie i natychmiast wysłane, jak tylko skończy odpowiadać. Odświeżenie przeglądarki nic nie zmienia, nie trzymam z tyłu głowy myśli „muszę to wysłać", a gdy sygnał dźwiękowy informuje mnie o gotowej odpowiedzi, czekam na drugą, bo moje drugie pytanie już leci w kolejce.
+Zabawne jest to, że kiedy opowiadam ludziom, pierwszą reakcją jest lekki uśmieszek w stylu „głupie głupoty". Wcale się nie dziwię, bo brzmi to absurdalnie. Jaki wyróżnik? Kiedy AI mi odpowiada, mogę w kolejce wysłać kolejne zapytanie – zostanie automatycznie i natychmiast wysłane, jak tylko skończy odpowiadać. Odświeżenie przeglądarki nic nie zmienia, nie trzymam z tyłu głowy myśli „muszę to wysłać", a gdy sygnał dźwiękowy informuje mnie o gotowej odpowiedzi, czekam na drugi, bo moje drugie pytanie już leci w kolejce.
 
 Dla mnie to poziom wygody na tyle wysoki, że kiedy zdarza mi się odpalić Gemini, Claude czy ChatGPT w przeglądarce, jestem natychmiast poirytowany, że muszę czekać z wysłaniem promptu, który już mam gotowy.
 
