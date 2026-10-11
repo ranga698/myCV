@@ -15,7 +15,7 @@ Chciałem dać AI pełny dostęp do wiedzy z książek, które dostarczę. Potrz
 
 ## CEL
 
-Szukałem efektywniejszej nauki. Na Reddicie trafiłem na opis _„How to Build Karpathy's LLM Wiki"_ – czyli pomysł, żeby połączyć AI ze swoją zgromadzoną wiedzą. Po głębszej analizie odpadło: rozwiązanie drogie, a przepalanie tokenów przy każdym pytaniu do notatek nie miało moich rąk. Tak trafiłem na koncepcję **RAG**, później **GraphRAG** – finalnie do uruchomienia **LightRAG + RAG-Everything**.
+Szukałem sposobu na wykorzystanie pełnej mocy AI przy czytaniu książki. Na Reddicie trafiłem na opis _„How to Build Karpathy's LLM Wiki"_ – czyli pomysł, żeby połączyć AI ze swoją zgromadzoną wiedzą. Po głębszej analizie odpadło: rozwiązanie drogie, a przepalanie tokenów przy każdym pytaniu do notatek nie miało moich rąk. Tak trafiłem na koncepcję **RAG**, później **GraphRAG** – finalnie do uruchomienia **LightRAG + RAG-Everything**.
 
 ## ROZWIĄZANIE
 
