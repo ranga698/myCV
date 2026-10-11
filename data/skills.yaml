@@ -95,7 +95,7 @@ categories:
         desc: "Umiejętność obsługi, instalacji, korzystania z Portainer i Arcade, wdrożenia"
 
   - name: Automatyka
-    stars: 4
+    stars: 4.5
     subskills:
       - name: PLC
         status: done
@@ -117,7 +117,7 @@ categories:
         desc: "Czytanie schematów elektrycznych / P&ID"
 
   - name: HomeLab / projekty
-    stars: 3.5
+    stars: 4
     subskills:
       - name: Kea-DHCP
         status: progress
