@@ -58,7 +58,7 @@ categories:
         desc: "ARP, IGMP snooping, Two-Way reachability, T568A/B, cable rollover, over-subscription, CAT (3-7), encapsulation i decapsulation"
 
   - name: IT
-    stars: 4
+    stars: 3.5
     subskills:
       - name: C#
         status: progress
@@ -95,7 +95,7 @@ categories:
         desc: "Umiejętność obsługi, instalacji, korzystania z Portainer i Arcade, wdrożenia"
 
   - name: Automatyka
-    stars: 3.5
+    stars: 4
     subskills:
       - name: PLC
         status: done
@@ -116,8 +116,8 @@ categories:
         status: done
         desc: "Czytanie schematów elektrycznych / P&ID"
 
-  - name: HomeLab
-    stars: 4
+  - name: HomeLab / projekty
+    stars: 3.5
     subskills:
       - name: Kea-DHCP
         status: progress
