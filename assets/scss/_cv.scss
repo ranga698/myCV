@@ -50,6 +50,11 @@
   margin-bottom: 8px;
 }
 
+// segmenty tytulu nie lamia sie w polowie (Industrial Networking = 1 calosc)
+.title-seg {
+  white-space: nowrap;
+}
+
 .cv-sidebar .location {
   font-size: 0.85rem;
   color: $text-muted;

@@ -16,7 +16,12 @@
   {{ end }}
 
   <h1>{{ $profile.name }}</h1>
-  <p class="title">{{ $profile.title }}</p>
+  {{ $segs := split $profile.title "|" }}
+  {{ $wrapped := slice }}
+  {{ range $segs }}
+    {{ $wrapped = $wrapped | append (printf "<span class=\"title-seg\">%s</span>" (trim . " ")) }}
+  {{ end }}
+  <p class="title">{{ delimit $wrapped " | " | safeHTML }}</p>
   <p class="location">📍 {{ $profile.location }}</p>
 
   <div class="contact-info">
