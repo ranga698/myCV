@@ -103,3 +103,25 @@
 main {
   flex: 1;
 }
+// ===== HEADER NA TELEFONIE - bez poziomego scrolla =====
+@media (max-width: 480px) {
+  .site-header .container {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+
+  .site-header .logo {
+    font-size: 1.05rem;
+    gap: 10px;
+  }
+
+  .site-header nav {
+    gap: 0;
+    flex-wrap: wrap;
+  }
+
+  .site-header nav a {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+}
