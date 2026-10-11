@@ -76,7 +76,7 @@ Funkcja, z której – przyznaję – obecnie, w dobie LightRAG i agentów AI, n
 
 ### Terminal, czyli jak z chatu zrobić agenta
 
-Obecnie dla mnie coś obowiązkowego: po co LLM ma się męczyć, jak można dać mu piaskownicę do zabawy. Twórcy Open WebUI przygotowali specjalnego dockera, którego podpinamy do naszego Open WebUI – kiedy mówię mu „wygeneruj kod", „sprawdź", „zmień" albo zwyczajnie chcę mu któryś plik wrzucić, ma swoją piaskownicę. Potrafi szybko i sensownie zaprojektować prostą stronę internetową czy podmienić pliki, bo może zainstalować dowolne narzędzie, którego potrzebuje. Nie jest to może jeszcze poziom agenta AI, ale jesteśmy na bardzo mocnym styku. Wisienka: do tego jest interfejs, więc przerzucanie plików, ściąganie czy prosta komenda w dockerze bez wychodzenia z czatu. Główny zysk: kolejne podbicie efektywności pracy z LLM.
+Obecnie dla mnie coś obowiązkowego: po co LLM ma się męczyć, jak można dać mu piaskownicę do zabawy. Twórcy Open WebUI przygotowali specjalnego dockera, którego podpinamy do naszego Open WebUI – kiedy mówię mu „wygeneruj kod", „sprawdź", „zmień" albo zwyczajnie chcę mu któryś plik wrzucić, ma swoją piaskownicę. Potrafi szybko i sensownie zaprojektować prostą stronę internetową czy podmienić pliki, bo może zainstalować dowolne narzędzie, którego potrzebuje. Nie jest to może jeszcze poziom agenta AI, ale jesteśmy na bardzo mocnym styku. Wisienka na torcie: do tego jest interfejs, więc przerzucanie plików, ściąganie czy prosta komenda w dockerze bez wychodzenia z czatu. Główny zysk: kolejne podbicie efektywności pracy z LLM.
 
 ### YouTube API – miły dodatek
 
