@@ -28,8 +28,6 @@ Szukałem rozwiązania czterech problemów:
 
 ### Platforma API – OpenRouter
 
-Sprawę otworzył mi kolega po fachu, który już wtedy zrezygnował z zabawy w opłaty na rzecz API – konkretnie z OpenRouter.
-
 Pierwszy krok: jedno miejsce z dostępem do wszystkich LLM, bez przepinania kart między dostawcami. Rozwiązał to w 100% **OpenRouter**. Ważna funkcja: lista LLM z informacją o popularności w danym temacie – szybko oceniam, czy dany model ma sens, filtrując np. po Learn. Dzięki temu mocno zwiększyłem rotację modeli i dużo częściej korzystam z LLM.
 
 Na dodatek śledzę wydatki i wyszukuję modele znacząco tańsze od wiodących dostawców – nie zderzam się z limitami czasowymi przy zachowaniu niskich kosztów.
