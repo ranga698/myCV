@@ -23,6 +23,9 @@
     {{ if $profile.phone }}
       <p class="contact-item">📞 {{ $profile.phone }}</p>
     {{ end }}
+    {{ if $profile.whatsapp }}
+      <p class="contact-item">💬 <a href="https://wa.me/{{ $profile.whatsapp }}">WhatsApp</a></p>
+    {{ end }}
     {{ if $profile.email }}
       <p class="contact-item">✉️ <a href="mailto:{{ $profile.email }}">{{ $profile.email }}</a></p>
     {{ end }}
