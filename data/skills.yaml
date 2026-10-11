@@ -4,7 +4,7 @@ categories:
     subskills:
       - name: Subnet
         status: done
-        desc: "Obliczanie subnet, skrócony zapis, FLSM, VLSM, klasowość, bezklasowość"
+        desc: "Umiejętność liczenia subneta: skrócony zapis, FLSM i VLSM, klasy i bezklasowość"
       - name: Wildcard Mask
         status: progress
         desc: "Zastosowanie (OSPF), obliczanie"
