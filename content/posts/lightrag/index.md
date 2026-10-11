@@ -39,7 +39,7 @@ Rozmawiam z AI (w moim przypadku **DeepSeek v4 Pro** przez API) – model cały 
 
 ### Koszty
 
-7 dolarów za 1200 stron książki Cisco. Nie jest źle – a można jeszcze taniej, korzystając z darmowych API. Wtedy co prawda trwa to ~3 razy dłużej, ale zawsze parę dolarów zostaje w kieszeni. 😊
+7 dolarów za 1200 stron. Nie jest źle – a można jeszcze taniej, korzystając z darmowych API. Wtedy co prawda trwa to ~3 razy dłużej, ale zawsze parę dolarów zostaje w kieszeni. 😊
 
 ### Gdzie to zastosowałem w praktyce
 
