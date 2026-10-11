@@ -157,6 +157,35 @@
     text-underline-offset: 3px;
   }
 
+  .skills-legend {
+    font-size: 0.78rem;
+    color: $text-muted;
+    margin-top: -4px;
+
+    .lg {
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .lg-done {
+      color: #2e9e5b;
+    }
+
+    .lg-progress {
+      color: #8fd6ac;
+      border-bottom: 2px solid #8fd6ac;
+      padding-bottom: 1px;
+    }
+
+    .lg-empty {
+      color: #c9c9c9;
+    }
+
+    .lg-sep {
+      color: $text-muted;
+    }
+  }
+
   .chevron-down-inline {
     display: inline-flex;
     align-items: center;
