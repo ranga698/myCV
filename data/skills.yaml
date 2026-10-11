@@ -10,7 +10,7 @@ categories:
         desc: "Umiejętność liczenia wildcard, wiem gdzie stosować (np. OSPF)."
       - name: VLAN
         status: done
-        desc: "Powód stosowania VLAN, konfiguracja access port, trunk port, native-VLAN, Router-On-The-Stick, Inter-VLAN via SVI, podział na grupy VLAN - maska + IP, routing L3, switch L3 vs router L3"
+        desc: "Umiejętność konfiguracji VLAN, wiem po co je stosować: access i trunk port, native-VLAN, Router-On-The-Stick, Inter-VLAN via SVI, grupowanie VLAN-ów (maska + IP), routing L3 – switch L3 vs router L3"
       - name: STP/RSTP
         status: progress
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
