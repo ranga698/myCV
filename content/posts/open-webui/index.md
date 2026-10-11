@@ -11,13 +11,13 @@ draft = false
 
 ## TL;DR
 
-Zrezygnowałem z subskrypcji na rzecz API – **OpenRouter** jako API do modeli – i postawiłem własne środowisko do promptowania: **Open WebUI** na LXC (Proxmox). Jedno miejsce dla wszystkich LLM i funkcje, których webowe platformy nie dają: kolejkowanie promptów, notatki, archiwum rozmów, dostęp do internetu (SearXNG + Firecrawl), RAG, sandbox terminalowy i YouTube API. Efekt: pełna kontrola, wyraźny wzrost efektywności pracy z modelami oraz obniżenie kosztów o 71% (700 zł na subskrypcje zamieniłem w 200 zł na API).
+Zrezygnowałem z subskrypcji na rzecz API – **OpenRouter** jako API do modeli – i postawiłem własne środowisko do promptowania: **Open WebUI** na LXC (Proxmox). Jedno miejsce dla wszystkich LLM i funkcje, których webowe platformy nie dają: kolejkowanie promptów, notatki, archiwum rozmów, dostęp do internetu (SearXNG + Firecrawl), RAG, sandbox terminalowy i YouTube API. Efekt: pełna kontrola, wyraźny wzrost efektywności pracy z modelami oraz obniżenie kosztów o 71%.
 
 ## CEL
 
-Wszystko kręciło się wokół subskrypcji: jeden dostawca, jeden interfejs, minimum miesiąc zobowiązania – a modeli LLM jest naprawdę dużo, więc skakanie między platformami było czasochłonne i mało efektywne, a każdy kolejny interfejs to kolejna warstwa trudności w postaci trzymania promptów i materiałów na zewnątrz. Do tego dochodziło to, że część dostawców w ogóle nie ma własnej strony do promptowania – udostępniają tylko API – więc część tematów była dla mnie zamknięta.
+Wszystko kręciło się wokół subskrypcji: jeden dostawca, jeden interfejs, miesięczny cykl rozliczenia niezależny od zużycia tokenów – przy zamknięciu się na jeden model LLM, bez możliwości testowania innych, więc skakanie między platformami było czasochłonne i mało efektywne, a każdy kolejny interfejs to kolejna warstwa trudności w postaci trzymania promptów i materiałów na zewnątrz. Do tego dochodziło to, że część dostawców w ogóle nie ma własnej strony do promptowania – udostępniają tylko API – więc duża część LLM była dla mnie niedostępna.
 
-Szukałem rozwiązania czterech problemów: odejścia od subskrypcji na rzecz API, obniżenia kosztów względem subskrypcji, jednego miejsca do elastycznej pracy z różnymi LLM oraz rozwoju w tematach, w których blokowały mnie ograniczenia dostawców webowych.
+Szukałem rozwiązania czterech problemów: odejścia od subskrypcji na rzecz API, obniżenia kosztów, jednego miejsca do pracy z różnymi LLM oraz wycisnięcia tyle ile się da z LLM bez ograniczeń dostarczanych interfejsów webowych.
 
 ## ROZWIĄZANIE
 
