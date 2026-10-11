@@ -2,7 +2,7 @@
 <section class="container">
   <article class="single-page">
     <h1>{{ .Title }}</h1>
-    <div class="entry-date">{{ .Date.Format "2 January 2006" }}</div>
+    <div class="entry-date">{{ partial "date-pl.html" . }}</div>
     {{ if .Params.tags }}
       <div class="tags">
         {{ range .Params.tags }}

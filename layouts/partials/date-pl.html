@@ -1,0 +1,4 @@
+{{/* Data po polsku: 27 lipca 2026 */}}
+{{ $miesiace := slice "stycznia" "lutego" "marca" "kwietnia" "maja" "czerwca" "lipca" "sierpnia" "września" "października" "listopada" "grudnia" }}
+{{ $i := (int .Date.Month) }}
+{{ .Date.Day }} {{ index $miesiace (sub $i 1) }} {{ .Date.Year }}

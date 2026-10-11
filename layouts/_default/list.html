@@ -9,7 +9,7 @@
           {{ if eq .Type "skill" }}🔧 Umiejętność{{ else }}📝 Artykuł{{ end }}
         </div>
         <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
-        <div class="entry-date">{{ .Date.Format "2 January 2006" }}</div>
+        <div class="entry-date">{{ partial "date-pl.html" . }}</div>
         <p class="entry-excerpt">{{ .Description | default .Summary | truncate 200 }}</p>
       </article>
     {{ end }}

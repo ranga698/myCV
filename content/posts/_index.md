@@ -1,6 +1,6 @@
 +++
-title = "Artykuły i umiejętności"
+title = "PROJEKTY"
 date = 2026-01-01
 +++
 
-Lista artykułów blogowych i szczegółowych opisów umiejętności.
+Moje projekty.
