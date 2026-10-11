@@ -11,7 +11,7 @@
                data-category="{{ .Params.category | default "all" }}"
                data-tags="{{ delimit .Params.tags "|" }}">
         <div class="entry-type {{ if eq .Type "skill" }}skill-type{{ else }}post-type{{ end }}">
-          {{ if eq .Type "skill" }}🔧 Umiejętność{{ else }}📝 Artykuł{{ end }}
+          {{ if eq .Type "skill" }}🔧 Umiejętność{{ else }}📝 PROJEKT{{ end }}
         </div>
         <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
         <div class="entry-date">{{ partial "date-pl.html" . }}</div>
@@ -110,7 +110,17 @@
     h.addEventListener('click', function(e){
       e.preventDefault();
       e.stopPropagation();
-      setTag(h.dataset.tag);
+      var t = h.dataset.tag;
+      // jezeli hashtag odpowiada glownej kategorii -> aktywuj ta kategorie (jedno byto)
+      var isCategory = document.querySelector('.filter-bar .cat-btn[data-category="' + t + '"]');
+      if (isCategory) {
+        currentCategory = t;
+        currentTag = null;
+        if (window.history.replaceState) { window.history.replaceState(null, '', '/posts/'); }
+        applyFilter();
+      } else {
+        setTag(t);
+      }
     });
   });
 
