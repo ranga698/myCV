@@ -11,18 +11,13 @@ draft = false
 
 ## TL;DR
 
-Zrezygnowałem z subskrypcji na rzecz API i postawiłem własne środowisko do promptowania: **OpenRouter** jako brama do modeli + **Open WebUI** na LXC w Proxmox. Jedno miejsce dla wszystkich LLM, niższe koszty i funkcje, których webowe platformy nie dają: kolejkowanie promptów, notatki, archiwum rozmów, dostęp do internetu (SearXNG + Firecrawl), RAG, sandbox terminalowy i YouTube API. Efekt: pełna kontrola i wyraźny wzrost efektywności pracy z modelami.
+Zrezygnowałem z subskrypcji na rzecz API – **OpenRouter** jako API do modeli – i postawiłem własne środowisko do promptowania: **Open WebUI** na LXC (Proxmox). Jedno miejsce dla wszystkich LLM i funkcje, których webowe platformy nie dają: kolejkowanie promptów, notatki, archiwum rozmów, dostęp do internetu (SearXNG + Firecrawl), RAG, sandbox terminalowy i YouTube API. Efekt: pełna kontrola, wyraźny wzrost efektywności pracy z modelami oraz obniżenie kosztów o 71% (700 zł na subskrypcje zamieniłem w 200 zł na API).
 
 ## CEL
 
-Moja historia z LLM zaczyna się klasycznie – główne platformy w przeglądarce, za opłatą subskrypcji. Tę część pomijam i przechodzę od razu do sedna, bo problemy były konkretne:
+Wszystko kręciło się wokół subskrypcji: jeden dostawca, jeden interfejs, minimum miesiąc zobowiązania – a modeli LLM jest naprawdę dużo, więc skakanie między platformami było czasochłonne i mało efektywne, a każdy kolejny interfejs to kolejna warstwa trudności w postaci trzymania promptów i materiałów na zewnątrz. Do tego dochodziło to, że część dostawców w ogóle nie ma własnej strony do promptowania – udostępniają tylko API – więc część tematów była dla mnie zamknięta.
 
-1. rezygnacja z subskrypcji na rzecz API,
-2. obniżenie kosztów względem subskrypcji,
-3. jedno miejsce, z którego elastycznie korzystam z różnych LLM,
-4. rozwój w tematach, w których blokowały mnie ograniczenia dostawcy webowego.
-
-Dochodziło do tego, że część dostawców w ogóle nie ma własnej strony do promptowania – udostępniają tylko API. Skakanie między platformami było czasochłonne i nieefektywne, a każdy proponował inny interfejs, więc prompty i materiały trzymałem zewnętrznie.
+Szukałem rozwiązania czterech problemów: odejścia od subskrypcji na rzecz API, obniżenia kosztów względem subskrypcji, jednego miejsca do elastycznej pracy z różnymi LLM oraz rozwoju w tematach, w których blokowały mnie ograniczenia dostawców webowych.
 
 ## ROZWIĄZANIE
 
