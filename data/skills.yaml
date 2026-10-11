@@ -4,37 +4,37 @@ categories:
     subskills:
       - name: Subnet
         status: done
-        desc: "Umiejętność liczenia subneta: skrócony zapis, FLSM i VLSM, klasy i bezklasowość"
+        desc: "Umiem obliczyć subnet, wiem co oznacza skrócony zapis, FLSM i VLSM, klasowość i bezklasowość, niedopasowanie subnet"
       - name: Wildcard Mask
         status: progress
         desc: "Umiejętność liczenia wildcard, wiem gdzie stosować (np. OSPF)."
       - name: VLAN
         status: done
-        desc: "Umiejętność konfiguracji VLAN, wiem po co ją stosować: access i trunk port, native-VLAN, Router-on-a-Stick, Inter-VLAN via SVI, podział na grupy VLAN (maska + IP), routing - switch L3 vs router L3"
+        desc: "Umiejętność konfiguracji VLAN, wiem po co je stosować: access i trunk port, native-VLAN, Router-on-a-Stick, Inter-VLAN via SVI, podział na grupy VLAN (maska + IP), routing - switch L3 vs router L3"
       - name: STP/RSTP
         status: done
         desc: "Różnice między wersjami STP, BPDU Guard, Root Guard, Loop Guard, BPDU Filter, Port Fast, Load Balance, obliczanie STP"
       - name: Routing
         status: done
-        desc: "Static routing i dynamic routing, słownictwo"
+        desc: "Static routing i dynamic routing"
       - name: Wireshark
         status: progress
-        desc: "Jestem w trakcie nauki obsługi Wireshark oraz wykorzystania do analizy na przykładzie: Ethernet/IP, DLR, TCP/IP, ruchu sieciowego w domu, firmie, STP"
+        desc: "Jestem w trakcie nauki analizy ruchu sieciowego w domu i firmie na przykładzie: Ethernet/IP, STP, DLR, OPC UA, Modbus TCP/IP"
       - name: CPwE
         status: done
-        desc: "Rozumiem zastosowanie tego standardu, umiem z niego korzystać i przedstawić klientom, rozumiem po co jest"
+        desc: "Rozumiem zastosowanie tego standardu, umiem z niego korzystać, przedstawić klientom i stworzyć strukturę sieciową z jego wykorzystaniem"
       - name: Architecture network
         status: progress
-        desc: "Rozumiem Campus network i jestem w trakcie doszlifowywania umiejętności projektowania sieci na poziomie OT i IT"
-      - name: DTP i VTP
+        desc: "Rozumiem Campus network i jestem w trakcie doszlifowywania umiejętności projektowania sieci na poziomie IT"
+      - name: DTP & VTP
         status: done
-        desc: "Umiem to skonfigurować, rozumiem dlaczego nie jest zalecane stosowanie ze względu na bezpieczeństwo"
+        desc: "Rozumiem dlaczego stosowanie nie jest zalecane ze względu na bezpieczeństwo"
       - name: EtherChannel
         status: done
         desc: "Rozumiem zastosowanie (agregacja), PAgP, LACP, Static EtherChannel"
       - name: model OSI/ISO
         status: done
-        desc: "Rozumiem OSI/ISO, budowę L2, L3, L4"
+        desc: "Rozumiem OSI/ISO, budowę Ethernet Frame (MAC), IP Header, TCP – rozwijam te umiejętności przez naukę analizy w Wireshark"
       - name: NAT
         status: progress
         desc: "Jestem na etapie nauki teoretycznej, mam za sobą praktyczne wdrożenie rozwiązania"
@@ -44,12 +44,18 @@ categories:
       - name: RIP & EIGRP
         status: done
         desc: "Różnice między protokołami, zastosowanie i konfiguracja, słownictwo"
-      - name: Inne
-        status: progress
-        desc: "ARP, IGMP snooping, Two-Way reachability, T568A/B, cable rollover, over-subscription, CAT (3-7), encapsulation i decapsulation, model OSI/ISO"
       - name: Firewall
         status: progress
-        desc: "Konfiguracja OPNsense, pracuję nad umiejętnościami pełnej konfiguracji"
+        desc: "Konfiguracja OPNsense, wdrożenie – pracuję nad zaawansowaną konfiguracją"
+      - name: Protokoły
+        status: done
+        desc: "Znajomość EtherNet/IP, CIP Security, OPC UA, MQTT, Modbus TCP/IP, DNP3"
+      - name: Cisco
+        status: progress
+        desc: "Jestem w trakcie rozwoju umiejętności Cisco, znajomość Stratix, GNS3, CML, ContainerLab"
+      - name: Inne
+        status: progress
+        desc: "ARP, IGMP snooping, Two-Way reachability, T568A/B, cable rollover, over-subscription, CAT (3-7), encapsulation i decapsulation"
 
   - name: IT
     stars: 4
@@ -57,78 +63,77 @@ categories:
       - name: C#
         status: progress
         desc: "Pisanie kodu C# pod platformę FT Optix, pisanie wykresów w C# pod SCADA (WPF), skrypty automatyzacji pod PLC (SDK Studio 5000)"
-      - name: Windows Server
+      - name: JavaScript
+        status: done
+        desc: "Pisanie kodu w SCADA, wykresy SCADA (Apache ECharts)"
+      - name: Hypervisors Type 1 (Bare-Metal)
         status: progress
-        desc: "Analiza logów, deploy na serwerze (Hyper-V), konfiguracja, analiza obciążeń, nieprawidłowości działania systemu"
+        desc: "Wdrażanie Proxmox, Windows Server (Hyper-V), konfiguracja, analiza logów, błędów i obciążeń, support niedziałającego systemu, dobór rozwiązań, Dell, Stratus"
+      - name: Excel
+        status: done
+        desc: "Zaawansowana znajomość Excela, wykorzystanie w automatyzacji, generowanie raportów (C#), pisanie zaawansowanych skryptów VBA"
+      - name: Grafana & Prometheus
+        status: progress
+        desc: "Wdrożenie diagnostyki z serwera, dashboard pomiaru energii, projekt pod wizualizację firewall"
+      - name: Monitoring OT
+        status: progress
+        desc: "Niewielkie doświadczenie w Zabbix – z powodu migracji na checkmk, gdzie mam już większe doświadczenie"
       - name: Git
         status: progress
-        desc: "W trakcie nauki"
+        desc: "W planach realizacja Git na poziomie automatyki, aby rozwinąć podstawowe umiejętności, które mam"
       - name: Linux
         status: progress
-        desc: "Fedora, Ubuntu, Debian - w trakcie nauki"
-      - name: Server
-        status: progress
-        desc: "Umiejętność konfiguracji serwera (Dell, Stratus), instalacja i konfiguracja: Hyper-V & Proxmox, wdrożenia, komponenty, analiza systemów"
+        desc: "Użytkowe doświadczenie: Fedora, Debian, Ubuntu, FreeBSD – rozwój w ramach codziennego używania przy HomeLab"
       - name: Python
         status: progress
         desc: "Kiedyś bardzo dobra znajomość, teraz: w trakcie odświeżania wiedzy"
       - name: Prompt & Agent AI
         status: done
         desc: "Regularne korzystanie z Open WebUI oraz pi.dev z wieloma różnymi modelami LLM, RAG"
-      - name: Bazy danych
+      - name: Docker
         status: done
-        desc: "Znajomość: MSSQL, MariaDB, InfluxDB, VictoriaMetrics, Prometheus, Grafana, OSIsoft PI Historian"
-      - name: VBA & Excel
-        status: done
-        desc: "Świetna znajomość Excela wraz z wysoką umiejętnością pisania skryptów, automatyzacja"
-      - name: Monitoring OT
-        status: progress
-        desc: "checkmk, Zabbix, Grafana"
-      - name: Home Assistant
-        status: done
-        desc: "Znajomość IoT oraz IIoT, wdrożenia inteligentnych rozwiązań na poziomie konsumenckim (dom) oraz przemysłu"
+        desc: "Umiejętność obsługi, instalacji, korzystania z Portainer i Arcade, wdrożenia"
 
   - name: Automatyka
     stars: 3.5
     subskills:
       - name: PLC
         status: done
-      - name: Allen-Bradley
-        status: done
-      - name: Studio 5000
-        status: done
-      - name: ControlEdge Honeywell
-        status: done
+        desc: "Allen-Bradley, Studio 5000, ControlEdge Honeywell"
       - name: SCADA
         status: done
-      - name: FactoryTalk View SE
-        status: done
-      - name: FactoryTalk Optix
-        status: done
-      - name: Experion PKS
-        status: done
+        desc: "FactoryTalk View SE, FactoryTalk Optix, Experion PKS"
       - name: DCS
         status: done
-      - name: PlantPAx 5 Rockwell Automation
-        status: done
-      - name: C300 Honeywell
-        status: done
-      - name: EtherNet/IP
-        status: done
-      - name: CIP Security
-        status: done
+        desc: "PlantPAx 5 Rockwell Automation, C300 Honeywell"
       - name: Industrial DevOps
-        status: done
-      - name: Application Code Manager (ACM)
-        status: done
-      - name: P&ID
-        status: done
+        status: progress
+        desc: "Rozwój nowej konwencji: automatyzacja generowania programu za pomocą Application Code Manager (ACM) + Excel, Studio 5000 SDK + Git + CI/CD, generowanie programu PLC za pomocą agentów AI"
       - name: PID
         status: done
+        desc: "Znajomość PID w wersji positional i velocity, kaskada, ratio, wyrównywanie pętli, zaawansowane konfiguracje pod DCS"
+      - name: Inne
+        status: done
+        desc: "Czytanie schematów elektrycznych / P&ID"
 
   - name: HomeLab
     stars: 4
     subskills:
+      - name: Kea-DHCP
+        status: progress
+        desc: "W trakcie migracji na Kea w OPNsense, pełne wdrożenie, realizacja wizualizacji w Grafana"
       - name: ERP
         status: progress
-        desc: "Wprowadziłem ERP na potrzeby sklepu [kaskastudio.pl](https://kaskastudio.pl/), który hostuję u siebie na serwerze – po testach wielu producentów wybrałem Dolibarr"
+        desc: "Wprowadziłem ERP na potrzeby sklepu [kaskastudio.pl](https://kaskastudio.pl/), który hostuję u siebie na serwerze – po testach innych dostawców (ERPNext) wybrałem Dolibarr"
+      - name: Agent AI
+        status: done
+        desc: "Korzystam z pi.dev, zastosowanie: tworzenie strony, generowanie kodu PLC, generowanie wizualizacji SCADA, konfiguracja agentów AI pod automatyzację w firmie, konfiguracja RAG"
+      - name: Home Assistant
+        status: done
+        desc: "Znajomość IoT oraz IIoT, wdrożenia inteligentnych rozwiązań na poziomie konsumenckim (dom) oraz przemysłu – uruchomione u siebie w domu"
+      - name: n8n
+        status: done
+        desc: "Zastosowanie do diagnostyki (API), tworzenia raportów, automatyzacji"
+      - name: Zarządzanie
+        status: done
+        desc: "Do gromadzenia notatek wykorzystuję Obsidian, pracuję w stylu Shane Parrish - modele mentalne i myślenie systemowe zamiast sztywnych szablonów. Pracuję w duchu Diátaxis - systematycznego podejścia do tworzenia dokumentacji technicznej."
