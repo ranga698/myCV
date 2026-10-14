@@ -6,7 +6,7 @@ categories:
         status: done
         desc: "Umiem obliczyć subnet, wiem co oznacza skrócony zapis, FLSM i VLSM, klasowość i bezklasowość, niedopasowanie subnet"
       - name: Wildcard Mask
-        status: progress
+        status: done
         desc: "Umiejętność liczenia wildcard, wiem gdzie stosować (np. OSPF)."
       - name: VLAN
         status: done
