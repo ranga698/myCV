@@ -9,7 +9,7 @@ summary: |
   Pracuję na styku OT i IT: od EtherNet/IP i OPC UA, przez projektowanie i segmentację sieci, po bezpieczeństwo OT w standardzie CPwE z wykorzystaniem CIP Security.
   Realizuję to na sprzęcie Stratix-Cisco.
 
-  SCADA, DCS, PLC to moja codzienność: projektuję i wdrażam systemy automatyki w oparciu o pełny ekosystem Rockwell Automation - od sterowników (Studio 5000), przez SCADA (FactoryTalk View SE & FactoryTalk Optix), po systemy DCS (PlantPAx 4 & 5).
+  SCADA, DCS, PLC to moja codzienność: implementuję pełny ekosystem Rockwell Automation - od sterowników (Studio 5000), przez SCADA (FactoryTalk View SE & FactoryTalk Optix), po systemy DCS (PlantPAx 4 & 5).
 
   Całość spinam bazami danych (MSSQL, VictoriaMetrics, OSIsoft PI Historian) i raportowanie (InfluxDB, Grafana, PI Vision)
 
