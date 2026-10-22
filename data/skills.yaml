@@ -138,7 +138,7 @@ categories:
         status: done
         desc: "Do gromadzenia notatek wykorzystuję Obsidian, pracuję w stylu Shane Parrish - modele mentalne i myślenie systemowe zamiast sztywnych szablonów. Pracuję w duchu Diátaxis - systematycznego podejścia do tworzenia dokumentacji technicznej."
       - name: Git
-        status: progress
+        status: empty
         desc: "Wdrożenie rozwiązania Git dla sterowników PLC – natywne rozwiązanie okazało się niewystarczające, dlatego otworzyłem projekt, w którym rozwijam tę koncepcję w Visual Studio Code"
       - name: Windows Server
         status: empty
