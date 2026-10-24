@@ -11,79 +11,61 @@ draft = false
 
 ## TL;DR
 
-Zrezygnowałem z subskrypcji na rzecz API i postawiłem w homelabie własne środowisko do promptowania (**Open WebUI** na LXC w Proxmox). Powód nie był finansowy — był to efekt uboczny. Głównym celem było rozdzielenie trzech warstw — dostawcy, interfejsu i modelu — których subskrypcja nie pozwala dostosować do własnych potrzeb. Efekt: dostęp do wszystkich modeli AI i funkcje, których platformy subskrypcyjne nie dostarczają. Efekt uboczny: koszty niższe o ok. 70% (szczegóły w tekście).
+Zrezygnowałem z subskrypcji na rzecz API i postawiłem w homelabie własne środowisko do promptowania (**Open WebUI** – LXC – Proxmox). Powód nie był finansowy – był to efekt uboczny. Głównym celem było rozdzielenie trzech warstw – dostawcy, interfejsu i modelu – których subskrypcja nie pozwala dostosować do własnych potrzeb. Efekt: dostęp do wszystkich modeli AI i funkcji, które platformy subskrypcyjne nie dostarczają. Efekt uboczny: koszt niższy o 70%.
 
 ## CEL
 
-Wszystko kręciło się wokół subskrypcji: jeden dostawca, jeden interfejs, jeden zestaw modeli i miesięczny cykl rozliczenia niezależny od tego, ile faktycznie zużyłem. Testowanie różnych modeli oznaczało skakanie między platformami, a każdy kolejny interfejs to inne podejście do pracy — więc prompty i materiały musiałem trzymać poza rozmową. Do tego część dostawców nie ma własnej strony do promptowania: dostarczają tylko API, więc spora grupa modeli była dla mnie niedostępna.
+Wszystko kręciło się wokół subskrypcji: jeden dostawca, jeden interfejs, jeden zestaw modeli i miesięczny cykl rozliczenia niezależny od tego, ile faktycznie zużyłem tokenów. Testowanie różnych modeli oznaczało skakanie między platformami, a każdy kolejny interfejs to inne podejście do pracy – więc prompty i materiały musiałem trzymać na zewnątrz. Do tego część dostawców nie ma własnej strony do promptowania: dostarczają tylko API, więc spora grupa modeli była dla mnie niedostępna.
 
-Chciałem jednego miejsca, w którym mogę pracować z dowolnym modelem bez zrywania kontekstu.
+Chciałem jednego miejsca, w którym mogę pracować z dowolnym modelem bez potrzeby migracji między platformami.
 
 ## ROZWIĄZANIE
 
-### Platforma API – OpenRouter
+### dostęp i koszt
 
-Pierwszy krok: jedno miejsce z dostępem do wszystkich LLM, bez przepinania kart między dostawcami. Rozwiązał to w 100% **OpenRouter**. Ważna funkcja: lista LLM z informacją o popularności w danym temacie – szybko oceniam, czy dany model ma sens, filtrując np. po Learn. Dzięki temu mocno zwiększyłem rotację modeli i dużo częściej korzystam z LLM.
+Pierwszym krokiem było rozdzielenie dostępu do reszty. **Openrouter** rozwiązał ten problem poprzez jedno konto i jeden rachunek. Rozwiązało to problem dostępu: każdy model, którego potrzebuję lub chcę przetestować, jest dostępny w tym samym miejscu.
 
-Na dodatek śledzę wydatki i wyszukuję modele znacząco tańsze od wiodących dostawców – nie zderzam się z limitami czasowymi przy zachowaniu niskich kosztów.
+Ważniejsza okazała się inna rzecz, której się nie spodziewałem: ranking modeli w danej kategorii według użytkowników. Zamiast zgadywać, czy nowy model spełni moje oczekiwania, wystarczy, że przejrzę rankingi, aby zobaczyć, na którym miejscu jest dany model pod względem np. kategorii learning albo code. Efekt jest taki, że rotacja modeli wzrosła – testuję znacznie częściej i więcej, bo testowanie przestało być koszmarem.
 
-Efektem ubocznym była nauka większej rozważności w wydawaniu tokenów: nauczyłem się myśleć i planować rozmowę z LLM, co w przypadku subskrypcji określam jako niemożliwe.
+Drugi skutek jest mniej oczywisty. Przy stałej opłacie tokeny nie mają znaczenia, więc nie ma powodu, aby o nich myśleć. Przy API sprawa wygląda inaczej – każde zapytanie ma swoją cenę, więc trzeba podejmować decyzję: kiedy przerwać rozmowę i rozpocząć nowy wątek, aby nie przepalać niepotrzebnie tokeny. Zacząłem planować rozmowę – co chcę osiągnąć, jaki kontekst jest potrzebny, czy lepiej zapytać raz a porządnie, czy mogę się tym nie przejmować. Brzmi to jak ograniczenie, a okazało się najtrwalszą zmianą w sposobie pracy, którą później wykorzystałem przy pracy z agent AI.
 
-### Dlaczego Open WebUI
+### interfejs to nie dodatek
 
-Platforma OpenRouter od razu mnie nie przekonała, z jednego prostego powodu: brak sensownego GUI. Po co mam zamieniać wygodny interfejs od takiego Claude na rzecz... tego czegoś?
+**Openrouter** sam w sobie mnie nie przekonał, i to z prostego powodu: nie ma sensownego GUI. Nie miałem powodu zamieniać działającego interfejsu na surową stronę.
 
-Ale bilans wypadł jasno: jak tylko rozwiążę problem z brakiem GUI, zyski z API przewyższają to, co daje jakakolwiek gotowa platforma.
+Ale bilans był jasny: gdy tylko rozwiążę problem interfejsu, zyski z API przewyższają to, co daje gotowa platforma. Potrzebowałem więc drugiej warstwy – własnego interfejsu.
 
-Padło na **Open WebUI**. Dwa powody: self-host i bardzo dobrze rozpisany roadmap rozwoju projektu – wersja 0.7 na tyle mnie zainteresowała i przekonała, że postanowiłem zaryzykować. Jak się okazało, rozwój tej platformy jest tak potężny, że przy każdej aktualizacji pojawia się coś nowego, wartego uwagi.
+Padło na **Open WebUI**. Zadecydowały dwa argumenty: self-host i aktywnie rozwijany projekt. Wersja 0.7 była na tyle dobrze rozwinięta, że zdecydowałem się zaryzykować. Okazało się, że był to dobry zakład – każda aktualizacja przynosi na tyle nowości, że w pewnym sensie platforma ma nieograniczone możliwości.
 
-### Kolejkowanie promptów
+### efektywność to otoczenie
 
-Zabawne jest to, że kiedy opowiadam ludziom, pierwszą reakcją jest lekki uśmieszek w stylu „głupie głupoty". Wcale się nie dziwię, bo brzmi to absurdalnie. Jaki wyróżnik? Kiedy AI mi odpowiada, mogę w kolejce wysłać kolejne zapytanie – zostanie automatycznie i natychmiast wysłane, jak tylko skończy odpowiadać. Odświeżenie przeglądarki nic nie zmienia, nie trzymam z tyłu głowy myśli „muszę to wysłać", a gdy sygnał dźwiękowy informuje mnie o gotowej odpowiedzi, czekam na drugi, bo moje drugie pytanie już leci w kolejce.
+Najbardziej niedocenianą funkcją jest kolejkowanie. Brzmi jak gadżet – sam się uśmiechałem, kiedy opowiadałem znajomym z pełną powagą, jak ważna jest to funkcja. W praktyce: wysyłam kolejne pytanie, kiedy model jeszcze odpowiada, a on automatycznie tworzy kolejkę i wrzuca to pytanie, gdy zakończy działanie. Nie muszę trzymać w głowie prompta, pamiętać o tym, a przy odświeżeniu przeglądarki nic mi nie zniknie. Przy pracy na platformach od Gemini czy ChatGPT dopiero poczułem, jak brak takiej funkcjonalności jest irytujący.
 
-Dla mnie to poziom wygody na tyle wysoki, że kiedy zdarza mi się odpalić Gemini, Claude czy ChatGPT w przeglądarce, jestem natychmiast poirytowany, że muszę czekać z wysłaniem promptu, który już mam gotowy.
+Notatki i biblioteka promptów robią coś podobnego: trzymają materiały tam, gdzie pracuję. Notatkę podpinam do rozmowy, prompt wywołuję z biblioteki i to z placeholderem, który od razu otwiera okno do uzupełnienia tekstu. Właśnie na takich drobiazgach wszystko się rozstrzyga, bo będzie to narzędzie, którego będę używać każdego dnia.
 
-### Notatki
+Osobno wspomnę archiwum, bo okazało się czymś innym, niż myślałem. Zaczynałem od niego jako od sposobu na nieusuwanie rozmów – bez jakiegoś konkretnego powodu. Po czasie, jak zapytałem o narzędzie RAG, a była to rozmowa, którą kiedyś prowadziłem z AI, ku mojemu zaskoczeniu model znalazł taką informację w archiwum. Niezauważenie zbudowałem bazę wiedzy, której nie planowałem.
 
-Drobna rzecz, która wprowadza niesamowitą wygodę. Idea banalna: miejsce, gdzie trzymam swoje notatki – tytuł i tekst. Nic więcej. Magia w dwóch rzeczach: notatkę jednym poleceniem podpinam do rozmowy (AI sobie ją przeczyta) oraz mogę powiedzieć AI, żeby zapisał coś do notatek. Niesamowicie przydatna rzecz.
+Na końcu terminal – piaskownica dla AI, w której model może uruchomić kod, podmienić pliki albo zainstalować narzędzie, które potrzebuje do wykonania zadania. To jeszcze nie agent, ale moment, w którym przestajesz działać z kodem na poziomie kopiuj-wklej, a przechodzisz na poziom uruchom-sprawdź. Zmiana jest wyraźnie odczuwalna z powodu dużego spadku błędów i szybkości działania.
 
-### Biblioteka promptów
+### rozszerzenie wiedzy modelu
 
-Kolejna funkcja, która nie robi żadnej rewolucji, ale jest zrobiona tak, że po prostu dobrze działa. Ktoś tutaj naprawdę zrobił solidny research, czego potrzebują użytkownicy. Chodzi o miejsce, gdzie przygotowuję prompty i dzielę je na foldery. Nie brzmi niezwykle – takie prompty mogę trzymać w Obsidianie i kopiować. Ale właśnie w tym jest mały szczegół: na telefonie jednym poleceniem podpinam prompta. Proste i genialne.
+Ostatnia zmiana dotyczy podpięcia lokalnej wyszukiwarki (SearXNG) i scrapera, czyli ściąganie całej strony (Firecrawl). Dzięki temu model potrafi znaleźć źródła, przeczytać je i przeanalizować.
 
-Totalnym game changerem jest placeholder w promptcie: po wklejeniu (przypominam – jednym skrótem) od razu otwiera się okno graficzne, w którym wpisuję swoje zapytanie. Efekt: gotowy prompt wraz z moim pytaniem.
+Przykład: pytałem o rewizję pewnego programu. Pierwsza odpowiedź była błędna, poprosiłem o weryfikację – model pobrał dokumentację, przeczytał ją i poprawił się. Okazało się, że za pierwszym razem przeczytał ją pobieżnie i dzięki narzędziom mógł się poprawić.
 
-### Archiwum
+Efekt był taki, że model przestał się mylić, co doprowadziło do efektu, gdzie przestałem się kłócić z modelem „kto ma rację" i przyjemność pracy z modelami znacznie wzrosła.
 
-Bardzo niepozorna funkcja, którą doceniłem długo później i zacząłem czerpać z niej korzyści przypadkiem. Rozmów z LLM jest bardzo dużo (zwłaszcza przy API), więc naturalne usuwanie starych wątków – z niejasnego, nieprzemyślanego powodu – zamieniłem na archiwizowanie. Ku mojemu zdziwieniu: kazałem LLM poszukać informacji o RAG, o który pytałem kiedyś, on zaczął szukać w archiwum i znalazł! Nagle okazało się, że mam ogromną bazę danych, do której mogę w każdej chwili sięgnąć, a buduję ją nieświadomie – jedyny filtr: do archiwum wrzucam to, co sensowne, a nie 100 zapytań o pogodę. Nie dość, że wszystko jest u mnie lokalnie, to mogę to w każdej chwili eksportować albo poprosić AI o przeszukanie archiwum w poszukiwaniu konkretnej informacji.
+### cała reszta
 
-### Dostęp do internetu i wyszukiwarka
+Dwie funkcje wymieniam tylko dlatego, że wypada je wymienić. RAG znam, ale w dobie LightRAG i agentów praktycznie z niego nie korzystam – dał mi jednak wstęp do tematu. YouTube API jest wbudowane i działa bez konfiguracji, czasami zdarza mu się zaciąć, ale i tak jest niezłe.
 
-Kolejny kamień milowy: dowolny (tak, dowolny) LLM zyskuje wzrost inteligencji o około 260% (wiem, bo liczyłem). Konfiguracja: przeczytałem 2 strony dokumentacji i w 30 minut poskładałem całość. Podpinamy dwie rzeczy: silnik do wyszukiwania – lokalnego „google" (SearXNG) oraz silnik do scrapingu stron (Firecrawl). Efekt: LLM nie dość, że może przeszukiwać internet, to jeszcze każdą stronę może wyciągnąć od początku do końca i ją przeczytać – wrzucam linka, on go odpala, analizuje i ściąga wszelkie informacje. W 100% rozwiązuje to problem przeterminowanych informacji.
-
-Przykład z życia: pytałem o rewizję do programu, na początku podał mi złe informacje, więc poprosiłem o weryfikację – dzięki temu ściągnął dokumentację, przeczytał ją i okazało się, że za pierwszym razem czytał ją zbyt pobieżnie. Po zapoznaniu poprawił swój błąd.
-
-Nagle skończyły się problemy z kłótnią kto ma rację, bo AI ma dostęp do całego internetu. Poziom skoku jakości był tak duży, że przy rozmowach ze znajomymi, którzy korzystają z tych samych LLM, mamy zupełnie inne doświadczenia – u mnie nie występowały problemy z „głupim modelem".
-
-### RAG
-
-Funkcja, z której – przyznaję – obecnie, w dobie LightRAG i agentów AI, nie korzystam praktycznie wcale. Mimo to o niej wspominam, bo dała mi bardzo fajny wstęp do RAG, który określam jako ważną lekcję. Krótko mówiąc: baza danych dla LLM – wrzucam swoje notatki albo dokumentację i chat ma dostęp do dodatkowej wiedzy, szybko i tanio. Ciekawostka: podawanie tekstu jest na tyle lekkie, że można skorzystać z lokalnego LLM bez karty graficznej. Czym jest RAG – odsyłam do mojego artykułu o [LightRAG](/posts/lightrag/).
-
-### Terminal, czyli jak z chatu zrobić agenta
-
-Obecnie dla mnie coś obowiązkowego: po co LLM ma się męczyć, jak można dać mu piaskownicę do zabawy. Twórcy Open WebUI przygotowali specjalnego dockera, którego podpinamy do naszego Open WebUI – kiedy mówię mu „wygeneruj kod", „sprawdź", „zmień" albo zwyczajnie chcę mu któryś plik wrzucić, ma swoją piaskownicę. Potrafi szybko i sensownie zaprojektować prostą stronę internetową czy podmienić pliki, bo może zainstalować dowolne narzędzie, którego potrzebuje. Nie jest to może jeszcze poziom agenta AI, ale jesteśmy na bardzo mocnym styku. Wisienka na torcie: do tego jest interfejs, więc przerzucanie plików, ściąganie czy prosta komenda w dockerze bez wychodzenia z czatu. Główny zysk: kolejne podbicie efektywności pracy z LLM.
-
-### YouTube API – miły dodatek
-
-Nie będę się rozpisywać: po wrzuceniu linka z YouTube wbudowany silnik API wyciąga napisy i od razu podaje do LLM. Ma to swoje humory – zdarza mu się zawiesić i trwać w nieprzerwanej pętli – ale jest to dosłownie wbudowane w Open WebUI, więc jako funkcja zero-konfiguracyjna działa dobrze.
-
-## WNIOSKI
+## PODSUMOWANIE
 
 Opisałem wybrane funkcje, które zrobiły na mnie największe wrażenie. Zdaję sobie sprawę, że nie opisałem sporo innych dodatków – zapoznałem się z nimi za mało albo zrezygnowałem, bo (jeszcze) nie widziałem zastosowania. Jeżeli pojawi się coś istotnego, może powstanie vol. 2 jako duży update.
 
 Uwagi techniczne i wnioski:
 
-- mam zainstalowane Open WebUI na LXC w Proxmox (brak gotowego skryptu Proxmox),
+- mam zainstalowane **Open WebUI** na LXC w Proxmox (brak gotowego skryptu Proxmox),
 - nie korzystałem z aplikacji na PC,
 - wszystko, co poruszyłem, łatwo znaleźć na stronie projektu – dokumentacja Open WebUI jest bardzo dobrze opisana,
 - obecnie korzystam z DeepSeek Flash & Pro v4.x oraz GLM 5.x,
