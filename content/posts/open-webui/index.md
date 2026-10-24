@@ -21,7 +21,7 @@ Chciałem jednego miejsca, w którym mogę pracować z dowolnym modelem bez potr
 
 ## ROZWIĄZANIE
 
-### dostęp i koszt
+### Dostęp i koszt
 
 Pierwszym krokiem było rozdzielenie dostępu do reszty. **Openrouter** rozwiązał ten problem poprzez jedno konto i jeden rachunek. Rozwiązało to problem dostępu: każdy model, którego potrzebuję lub chcę przetestować, jest dostępny w tym samym miejscu.
 
@@ -29,7 +29,7 @@ Ważniejsza okazała się inna rzecz, której się nie spodziewałem: ranking mo
 
 Drugi skutek jest mniej oczywisty. Przy stałej opłacie tokeny nie mają znaczenia, więc nie ma powodu, aby o nich myśleć. Przy API sprawa wygląda inaczej – każde zapytanie ma swoją cenę, więc trzeba podejmować decyzję: kiedy przerwać rozmowę i rozpocząć nowy wątek, aby nie przepalać niepotrzebnie tokeny. Zacząłem planować rozmowę – co chcę osiągnąć, jaki kontekst jest potrzebny, czy lepiej zapytać raz a porządnie, czy mogę się tym nie przejmować. Brzmi to jak ograniczenie, a okazało się najtrwalszą zmianą w sposobie pracy, którą później wykorzystałem przy pracy z agent AI.
 
-### interfejs to nie dodatek
+### Interfejs to nie dodatek
 
 **Openrouter** sam w sobie mnie nie przekonał, i to z prostego powodu: nie ma sensownego GUI. Nie miałem powodu zamieniać działającego interfejsu na surową stronę.
 
@@ -37,7 +37,7 @@ Ale bilans był jasny: gdy tylko rozwiążę problem interfejsu, zyski z API prz
 
 Padło na **Open WebUI**. Zadecydowały dwa argumenty: self-host i aktywnie rozwijany projekt. Wersja 0.7 była na tyle dobrze rozwinięta, że zdecydowałem się zaryzykować. Okazało się, że był to dobry zakład – każda aktualizacja przynosi na tyle nowości, że w pewnym sensie platforma ma nieograniczone możliwości.
 
-### efektywność to otoczenie
+### Efektywność to otoczenie
 
 Najbardziej niedocenianą funkcją jest kolejkowanie. Brzmi jak gadżet – sam się uśmiechałem, kiedy opowiadałem znajomym z pełną powagą, jak ważna jest to funkcja. W praktyce: wysyłam kolejne pytanie, kiedy model jeszcze odpowiada, a on automatycznie tworzy kolejkę i wrzuca to pytanie, gdy zakończy działanie. Nie muszę trzymać w głowie prompta, pamiętać o tym, a przy odświeżeniu przeglądarki nic mi nie zniknie. Przy pracy na platformach od Gemini czy ChatGPT dopiero poczułem, jak brak takiej funkcjonalności jest irytujący.
 
@@ -47,7 +47,7 @@ Osobno wspomnę archiwum, bo okazało się czymś innym, niż myślałem. Zaczyn
 
 Na końcu terminal – piaskownica dla AI, w której model może uruchomić kod, podmienić pliki albo zainstalować narzędzie, które potrzebuje do wykonania zadania. To jeszcze nie agent, ale moment, w którym przestajesz działać z kodem na poziomie kopiuj-wklej, a przechodzisz na poziom uruchom-sprawdź. Zmiana jest wyraźnie odczuwalna z powodu dużego spadku błędów i szybkości działania.
 
-### rozszerzenie wiedzy modelu
+### Rozszerzenie wiedzy modelu
 
 Ostatnia zmiana dotyczy podpięcia lokalnej wyszukiwarki (SearXNG) i scrapera, czyli ściąganie całej strony (Firecrawl). Dzięki temu model potrafi znaleźć źródła, przeczytać je i przeanalizować.
 
@@ -55,7 +55,7 @@ Przykład: pytałem o rewizję pewnego programu. Pierwsza odpowiedź była błę
 
 Efekt był taki, że model przestał się mylić, co doprowadziło do efektu, gdzie przestałem się kłócić z modelem „kto ma rację" i przyjemność pracy z modelami znacznie wzrosła.
 
-### cała reszta
+### Cała reszta
 
 Dwie funkcje wymieniam tylko dlatego, że wypada je wymienić. RAG znam, ale w dobie LightRAG i agentów praktycznie z niego nie korzystam – dał mi jednak wstęp do tematu. YouTube API jest wbudowane i działa bez konfiguracji, czasami zdarza mu się zaciąć, ale i tak jest niezłe.
 
